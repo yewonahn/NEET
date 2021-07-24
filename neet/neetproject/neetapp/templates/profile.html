@@ -1,0 +1,747 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            /* padding: 10px; */
+            background: white;
+        }
+
+        /* NAV바 */
+        nav ul {
+            width: 100%;
+            background-color: white;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 12%;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {background-color: #f1f1f1}
+        #drop-menu:hover {
+            background-color: #2044FF;
+            padding: 18px;
+            color: white;
+        }
+        .myteam, .mypage, .search-bar, .logout, .id, .profile {
+            font-size: smaller;
+            float: right;
+        }
+        .mypage {
+            margin-right: 12%;
+        }
+        .myteam a, .mypage a, .search-bar, .id a, .profile a {
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+        .myteam a, .mypage a, .search-bar {
+            padding: 23px 19px 23px 0;
+        }
+        .id a {
+            padding: 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 50px;
+        }
+        .logout {
+            font-size: xx-small;
+            margin: 21px 30px 21px 10px;
+            text-align: center;
+            width: 60px;
+            padding: 3px;
+            border-radius: 20px;
+            border: 1px solid #2044FF;
+            color: #2044FF;
+            cursor: pointer;
+        }
+
+        /*탭키 */
+        .tab{
+            width:1200px;
+            margin:auto;
+            padding-bottom:5px;
+            border-bottom-style: solid;
+            border-width:2px;
+            border-color:#9A9A9A;
+            margin-bottom:20px;
+        }
+        .tablinks.active {
+            width:600px;
+            padding-left:130px;
+            padding-right:130px;
+            padding-bottom:5px;
+            color:black;
+            background-color: #fff;
+            margin-left:120px;
+            margin-right:120px;
+            border-bottom-style: solid;
+            border-width:2px;
+            border-color:black;
+            font-size:15px;
+            
+          }
+        .tablinks{
+            width:600px;
+            padding-left:130px;
+            padding-right:130px;
+            padding-bottom:5px;
+            color:#9A9A9A;
+            margin: auto;
+            margin-left:120px;
+            margin-right:120px;
+            font-size:15px;
+        }
+        .top-content{
+            position:relative;
+        }
+      
+        .box {
+            width: 120px;
+            height: 120px; 
+           
+            overflow: hidden;
+            margin: auto;
+            margin-top:30px;
+            margin-bottom:30px;
+            
+        }
+
+        .realrealprofile{
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+        }
+   
+       
+        #box2 {
+            width: 30px;
+            height: 30px; 
+            border-radius: 70%;
+            overflow: hidden;
+            position:absolute;
+        }
+        .profile2 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .textbox{
+            text-align:center;
+            margin: auto; 
+            margin-bottom:35px;
+        }
+
+    
+        
+        #t1{
+            font-size:0.9rem;
+            font-weight:bold;
+        }
+
+        #t2{
+            font-size:0.6rem;
+        }
+
+        #t3{
+            font-size:0.6rem;
+        }
+
+        .button{
+            width:150px;
+            height:35px;
+
+            font-size:15px;
+            color:  #2044FF;
+            text-align: center;
+            
+
+            border: 1px solid #2044FF;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+            
+            padding:0.3rem;
+            margin-right:10px;
+            margin-left:10px;
+
+            margin-bottom:100px;
+            cursor:pointer;
+            
+        }
+
+        .button:hover{
+            background-color:#2044FF;
+            color:white;
+        }
+        .theme{
+            font-weight:bold;
+            font-size:0.8rem;
+        }
+
+        .partpart{
+            border: 1px solid #9A9A9A;
+            border-width: 0px 0px 1px 0px;
+            padding: 1rem;
+        }
+        .certext_parent{
+            display:flex;
+            margin: auto;
+        }
+
+        #button2{
+           width:300px
+           
+           
+        }
+
+        .certex{
+            margin-top:1rem;
+            width:165px;
+            height:75px;
+            font-size:15px;
+            background: #FFFFFF;
+            border: 1px solid #EEEEEE;
+            box-sizing: border-box;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin:15px;
+        }
+
+        #dates{
+            font-size:13px;
+            color:gray;
+        }
+        .toolex{
+            margin: 20px 10px; 
+            height: 30px;
+          
+        }
+
+        .contest{
+            height:200px;
+            width:145px;
+        }
+        .conbox{
+            margin:20px 20px;
+            font-size: 13px;
+        }
+
+        .date{
+            margin-top:10px;
+            color:gray;
+        }
+
+        #participate{
+            margin-top:10px;
+        }
+
+        .score{
+            color:gray;
+            font-weight:lighter;
+            margin-right:11px;
+        }
+
+        .more{
+            color:blue;
+            font-size:13px;
+            float: right;
+           
+        }
+
+        #review{
+            width:390px;
+            height:135px;
+            margin-top:18px;
+            margin-bottom: 14px;
+            margin-left: 19px;
+            font-size:13px;
+            
+            
+        }
+        .star{
+            
+            width:15px;
+            height:15px;
+        }
+
+        .info{
+            margin-top:4px;
+            font-size:13px;
+        }
+        .contesttitle{
+            color: gray;
+            margin-bottom: 5px;
+            margin-top:20px;
+        }
+        .reviewer{
+            margin-top:10px;
+            margin-left:35px;
+            
+        }
+        .cardbox{
+            margin: 20px;
+        }
+
+        .cardimage{
+            width: 280px;
+            height:190px;
+           
+            border-radius: 15px;
+            object-fit:cover;
+        }
+
+        .cardtext1{
+            margin-top:10px;
+            font-size:15px;
+        }
+
+        .cardtext2{
+            margin-top:2px;
+            font-size:14px;
+            color: gray;
+        }
+
+        .content{
+            margin-right: 120px;
+            margin-left: 120px;
+        }
+        .cardshow{
+            float:right;
+        }
+        a{
+            text-decoration:none
+        }
+        a:link{
+            color:black;
+        }
+        a:visited{
+            color:black;
+        }
+        #profile {
+            margin: 12px 10px 0 0;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="drop-menu" id="logo">NEET</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">소개</div>
+                <div class="drop-content">
+                    <a href="#">NEET란?</a>
+                    <a href="#">이용방법</a>
+                    <a href="#">운영진 소개</a>
+                </div>
+            </li>
+            <li class="drop" >
+                <div class="drop-menu" id="drop-menu">공모전</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">포트폴리오</div>
+            </li>
+            <li class="mypage"><a href="#">마이페이지</a></li>
+            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
+            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
+            <li class="logout">로그아웃</li>
+            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
+            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
+            <li class="search-bar">검색</li>
+        </ul>
+    </nav>
+    <div class="content">
+        <!-- 프로필 -->
+            <div class="top-content">
+                <div class="box">
+                    <img  class="realrealprofile" src="{% static 'setprofile.png'%}">
+                </div>
+            </div>
+                
+                <div class="textbox">
+                    <p id="t1">미네쓰</p>
+                    <p id="t2">성신여자대학교 서비스디자인공학과 4학년</p>
+                    <p id="t3">
+                        기획, 디자이너, 백엔드, 사용자 모두와 원활히 소통할 수 있는 프론트엔드 개발자<br>
+                        프로그래밍을 사랑하는, 프로그래밍을 즐기는 사람이 되고 싶은 사람입니다.<br>
+                    </p>
+                </div>
+                
+                    <div class=certext_parent id="button2">
+                        <div class="button">
+                            <div id="follow">팔로우</div>
+                        </div>
+    
+                        <div class="button">
+                            <div id="call">연락하기</div>
+                        </div>
+                    </div>
+                
+        
+    
+        <!-- 탭키 -->
+        
+        <div class="tab"> 
+            <span class="tablinks active" onclick="openTab(event, 'tab1')">프로필</span> 
+            <span class="tablinks" onclick="openTab(event, 'tab2')">포트폴리오</span> 
+        </div> 
+        <div id="tab1" class="tabcontent" style="display: block;">  
+                
+                <div class="part">
+                    <div class="partpart" id="certificate">
+                        <div class="theme">자격증<br></div>
+                        <div class="certext_parent">
+                            <div class="certex">    
+                                <div id="dates">2021.05<br></div>
+                                GTQ포토샵 1급
+                            </div>
+                            <div class="certex">    
+                                <div id="dates">2021.05<br></div>
+                                컴퓨터활용능력 1급
+                            </div>
+                            <div class="certex">    
+                                <div id="dates">2021.05<br></div>
+                                정보처리기사
+                            </div>
+                            <div class="certex">    
+                                <div id="dates">2021.05<br></div>
+                                토익 870
+                            </div>
+                        </div>
+                      
+    
+                        
+                            
+                    </div>
+    
+                    <div class="partpart" id="tool">
+                        <div class="theme">사용 가능 툴</div>
+                            <img src="{% static 'photoshop.png'%}" class="toolex">
+                            <img src="{% static 'premiere.png'%}" class="toolex">
+                            <img src="{% static 'python.png'%}" class="toolex">
+                            <img src="{% static 'c++.png'%}" class="toolex">
+                            <img src="{% static 'django.png'%}" class="toolex">
+                    </div>
+    
+                    <div class="partpart" >
+                        <div class="theme">수상 경력</div>
+                        <div class="certext_parent">
+                            <div class="conbox">
+                                <div class="item"><img src="{% static 'contest1.png'%}" class="contest"></div>
+                                <div class="date">2021. 03</div>
+                                <div class="contestname">국가물관리위원회 영상 ...</div>
+                                <div class="award">은상</div>
+                            </div>
+                            <div class="conbox">
+                                <div class="item"><img src="{% static 'contest3.png'%}" class="contest"></div>
+                                <div class="date">2021.03</div>
+                                <div class="contestname">제 25회 LH대학생 주택 ...</div>
+                                <div class="award">대상</div>
+                            </div>
+                        </div>
+    
+                            
+                    
+                    </div>
+                
+    
+                    <div class="partpart">
+                        <div class="theme">참가한 공모전 및 대외활동</div>
+                        <div class="certext_parent">
+                            <div class="conbox">
+                                <div class="item"><img src="{% static 'contest1.png'%}" class="contest"></div>
+                                <div class="contestname" id="participate">국가물관리위원회 영상 ...</div>
+                            </div>
+                            <div class="conbox">
+                                <div class="item"><img src="{% static 'contest2.png'%}" class="contest"></div>
+                                <div class="contestname" id="participate">제 12회 살기 좋은 마을 ...</div>
+                            </div>
+                            <div class="conbox">
+                                <div class="item"><img src="{% static 'contest3.png'%}" class="contest"></div>
+                                <div class="contestname" id="participate">제 25회 LH대학생 주택 ...</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                    <div class="partpart">
+                        <div class="theme">평가 <span class="score">평균 4.3</span><span class="more" style="cursor: pointer;" onclick="review()" >평가 남기기 ></a></span></div>
+                            <div class="certext_parent">
+                                <div class="certex" id="review">    
+                                    <div class="info">
+                                        <span id="box2" style="background: #BDBDBD;">
+                                            <img class="profile2" src="{% static 'profile2.png'%}">
+                                        </span>
+                                        <span class="reviewer" style="margin-top:10px;">&ensp;담비쓰&ensp;</span>
+                                        <span>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half"></i>
+                                        </span>
+                                    </div>
+                                    <div class="contesttitle">
+                                        About Internet 영상 공모전
+                                    </div>
+                                    <div class="realreview"> 
+                                        책임감 있게 팀 이끌어주신 덕분에 좋은 결과를 낼 수 있었던 것 같아요. 감사합니다!!
+                                    </div>
+                                </div>
+    
+                                <div class="certex" id="review">    
+                                    <div class="info">
+                                        <span id="box2" style="background: #BDBDBD;">
+                                            <img class="profile2" src="{% static 'profile3.png'%}">
+                                        </span>
+                                        <span class="reviewer">&ensp;수상내꺼&ensp;</span>
+                                        <span>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                    </div>
+                                    <div class="contesttitle">
+                                        제3회 청년 아이디어톤
+                                    </div>
+                                    <div class="realreview"> 
+                                        좋은 의견을 많이 내주시고 적극적으로 회의에 참여해주셔서 수상할 수 있었습니다.
+                                    </div>
+                                </div>
+    
+                                <div class="certex" id="review">    
+                                    <div class="info">
+                                        <span id="box2" style="background: #BDBDBD;">
+                                            <img class="profile2" src="{% static 'profile4.png'%}">
+                                        </span>
+                                        <span class="reviewer">&ensp;고구마피자&ensp;</span>
+                                        <span>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                    </div>
+                                    <div class="contesttitle">
+                                        제 2회 삼성카드 아이디어 공모전
+                                    </div>
+                                    <div class="realreview"> 
+                                        항상 성실하고 꼼꼼하게 작업을 진행하셔서 큰 어려움 없이 함께 작업할 수 있었습니다.
+                                    </div>
+                                </div>
+                             </div>   
+                        </div>
+                     </div>
+            </div>
+
+            <div id="tab2" class="tabcontent" style="display: none;">
+                <div class="certext_parent">
+                    <a href="{% url 'portfolioh' %}">
+                    <div class = "cardbox">
+                        <img src="{% static '001.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            World is My Life 기획 PPT 디자인
+                        </div>
+                      
+                        <div class ="cardtext2">
+                            전체 PPT 디자인
+                            <div class="cardshow">
+                            <i class="far fa-eye">221</i>&ensp;
+                            <i class="far fa-heart">35</i>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+    
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio7.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            제 21회 서울시 영상 기획 공모전
+                        </div>
+                        <div class ="cardtext2">
+                            영상 기획 및 제작
+                            <div class="cardshow">
+                                <i class="far fa-eye">125</i>&ensp;
+                                <i class="far fa-heart">25</i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio5.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            About Internet 영상 공모전 은상 수상
+                        </div>
+                        <div class ="cardtext2">
+                            영상 편집
+                            <div class="cardshow">
+                                <i class="far fa-eye">78</i>&ensp;
+                                <i class="far fa-heart">11</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio4.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            Cookiner 음식 레시피 어플 디자인
+                        </div>
+                      
+                        <div class ="cardtext2">
+                            전체 페이지 디자인
+                            <div class="cardshow">
+                            <i class="far fa-eye">221</i>&ensp;
+                            <i class="far fa-heart">35</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="certext_parent">
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio1.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            제 21회 창업 경진 대회 출품
+                        </div>
+                        <div class ="cardtext2">
+                            제품 3D 디자인
+                            <div class="cardshow">
+                                <i class="far fa-eye">56</i>&ensp;
+                                <i class="far fa-heart">5</i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio2.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            Platform Rundly 기획 PPT
+                        </div>
+                        <div class ="cardtext2">
+                            PPT 디자인
+                            <div class="cardshow">
+                                <i class="far fa-eye">44</i>&ensp;
+                                <i class="far fa-heart">7</i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio3.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            제 18회 소프트웨어 경진대회 
+                        </div>
+                        <div class ="cardtext2">
+                            전체 페이지 구현
+                            <div class="cardshow">
+                                <i class="far fa-eye">32</i>&ensp;
+                                <i class="far fa-heart">3</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "cardbox">
+                        <img src="{% static 'portfolio1.png'%}" class="cardimage">
+                        <div class = "cardtext1">
+                            Music is My Life 음악 추천 서비스
+                        </div>
+                      
+                        <div class ="cardtext2">
+                            전체 페이지 구현
+                            <div class="cardshow">
+                            <i class="far fa-eye">221</i>&ensp;
+                            <i class="far fa-heart">35</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function review() {
+                window.open("{% url 'review' %}", "review_write", "width=800, height=312, left=150%, top=150%")
+            }
+            function openTab(evt, tabName) 
+            { var i, tabcontent, tablinks; tabcontent = document.getElementsByClassName("tabcontent");
+             for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none";  } 
+             tablinks = document.getElementsByClassName("tablinks"); 
+             for (i = 0; i < tablinks.length; i++) 
+             { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block"; 
+            evt.currentTarget.className += " active"; }
+    
+        </script>
+</body>
+</html>

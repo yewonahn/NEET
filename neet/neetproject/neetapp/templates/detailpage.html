@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+    
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'detailpage.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: white;
+        }
+        nav ul, .filter ul {
+            list-style-type: none;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 12%;
+        }
+        nav ul li, .filter ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            padding: 12px 16px;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {
+            background-color: #f1f1f1
+        }
+        #drop-menu:hover, #filter:hover, .logout:hover {
+            background-color: #2044FF;
+            color: white;
+        }
+        #drop-menu:hover, #filter:hover {
+            padding: 18px;
+        }
+        .myteam, .mypage, .search-bar, .logout, .id, .profile {
+            font-size: smaller;
+            float: right;
+        }
+        .mypage {
+            margin-right: 12%;
+        }
+        .myteam a, .mypage a, .search-bar, .id a, .drop-content a, .profile a {
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+        .myteam a, .mypage a, .search-bar {
+            padding: 23px 19px 23px 0;
+        }
+        .id a {
+            padding: 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 30px;
+        }
+        .logout {
+            font-size: xx-small;
+            margin: 21px 30px 21px 10px;
+            text-align: center;
+            width: 60px;
+            padding: 3px;
+            border-radius: 20px;
+            border: 1px solid #2044FF;
+            color: #2044FF;
+            cursor: pointer;
+        }
+        #profile {
+            margin: 12px 10px 0 0;
+            width: 40px;
+        }
+        .realrealprofile {
+            vertical-align:middle;
+            margin: 0 5px 5px 0;
+        }
+        
+        #compet{
+            position: absolute;
+            width: 145px;
+            height: 200px;
+            top: 2297px;
+        }
+        #title{
+            position: absolute;
+            height: 22px;
+            left: 725px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 22px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+
+        #context{
+            position: absolute;
+            height: 22px;
+            left: 830px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 22px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+        #btn_group button{ 
+            position: absolute;
+            width: 150px;
+            height: 35px;
+            top: 675px;
+        
+        }
+
+        #btn_group button:hover{ color:white; background-color: skyblue; }
+        #test_btn1{
+            left: 726px;
+
+            color: #2044FF;
+            border: 1px solid #2044FF;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+            background-color: white;
+        }
+        #test_btn2{
+            left: 905px;
+            color: white;
+            background: #2044FF;
+            border-radius: 39.5px;
+        }
+        .portfolio a:link{
+            color:#2044FF;
+        }
+        .portfolio a:visited{
+            color:#2044FF;
+        }
+        .portfolio2 a:link{
+            color:#2044FF;
+        }
+        .portfolio2 a:visited{
+            color:#2044FF;
+        }
+        .portfolio3 a:link{
+            color:#2044FF;
+        }
+        .portfolio3 a:visited{
+            color:#2044FF;
+        }
+        a{
+            text-decoration:none
+        }
+        a:link{
+            color:black;
+        }
+        a:visited{
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="drop-menu" id="logo">NEET</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">소개</div>
+                <div class="drop-content">
+                    <a href="#">NEET란?</a>
+                    <a href="#">이용방법</a>
+                    <a href="#">운영진 소개</a>
+                </div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">공모전</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">포트폴리오</div>
+            </li>
+            <li class="mypage"><a href="#">마이페이지</a></li>
+            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
+            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
+            <li class="logout">로그아웃</li>
+            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
+            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
+            <li class="search-bar">검색</li>
+        </ul>
+    </nav>
+    <img src="https://s3.ap-northeast-2.amazonaws.com/media.linkareer.com/activity_manager/posters/2021-06-151327260497010_%ED%8F%AC%EC%8A%A4%ED%84%B0.png" alt="imgblock" id='compet' style="position: absolute; width: 405px; height: 560px; left: 300px; top: 150px;">
+    <p style="position: absolute; width: 282px; height: 38px; left: 725px; 
+    top: 150px; font-family: Roboto; font-style: normal; font-weight: bold; font-size: 20px; line-height: 23px; color: #000000;">국가물관리위원회 영상 공모전</p>
+    <p style="position: absolute; width: 593px; height: 134px; left: 725px; top: 225px; font-family: Noto Sans KR;
+    font-style: normal; font-weight: normal; font-size: 13px; line-height: 23px; color: #000000;">물의 소중함과 지속가능한 통합물관리를 알리고 싶은 누구나 참여할 수 있는<br>
+    [국가물관리위원회 영상 공모전]을 개최합니다!<br>일상 속에서 많은 순간 함께하는 물의 소중함을 영상에 담아 널리 알릴 수 있는 기회!<br>여러분의 반짝이는 아이디어를 마음껏 표현해 주세요!</p>
+
+    <p><code id="title" style="top: 355px;"><b>분야</b></code> <code id="context"style="top: 355px;">영상/사진</code></p>
+    <p><code id="title" style="top: 391px;"><b>대상</b></code> <code id="context"style="top: 391px;">제한 없음</code></p>
+    <p><code id="title" style="top: 427px;"><b>주최</b></code> <code id="context"style="top: 427px;">국가물관리위원회</code></p>
+    <p><code id="title" style="top: 463px;"><b>주최사 유형</b></code> <code id="context"style="top: 463px;">중앙정부/기관</code></p>
+    <p><code id="title" style="top: 499px;"><b>접수기간</b></code> <code id="context"style="top: 499px;">2021.06.14(월) ~ 2021.07.30(금)</code></p>
+    <p><code id="title" style="top: 538px;"><b>총 상금</b></code> <code id="context"style="top: 538px;">1천만원 이하</code></p>
+    <p><code id="title" style="top: 577px;"><b>1등 상금</b></code> <code id="context"style="top: 577px;">300만원</code></p>
+    <p><code id="title" style="top: 616px;"><b>홈페이지</b></code> <code id="context"style="top: 616px;">https://blog.naver.com/water_0827/222397389069</code></p>
+
+    <div id="btn_group">
+        <button id="test_btn1">저장하기</button>
+        <button id="test_btn2">참가하기</button>
+    </div>
+
+    <a href="{% url 'competition' %}" style="
+    position: absolute;
+    width: 79px;
+    height: 19.7px;
+    left: 340px;
+    top: 800px;
+
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #000000;
+    text-decoration:none;">상세 정보</a>
+    <a href="{% url 'recruitmentlist' %}" style="position: absolute;
+    width: 79px;
+    height: 19.7px;
+    left: 730px;
+    top: 800px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+    text-decoration:none;"><b>팀 구하기</b></a>
+    <a href="{% url 'members' %}" style="position: absolute;
+    height: 19px;
+    left: 1120px;
+    top: 800px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+    text-decoration:none;">팀원 구하기</a>
+
+    <hr style="position: absolute;
+    width: 1200px;
+    height: 0px;
+    left: 120px;
+    right:120px;
+    top: 825px;
+    text-align:center;
+    border: 0.1px solid #9A9A9A;">
+
+    <hr style="position: absolute;
+    width: 200px;
+    height: 0px;
+    left: 670px;
+    top: 825px;
+    text-align:center;
+    border: 2px solid black;
+    background-color: black;">
+
+    <div class="bigbox">
+        <div class="img1">
+            <img class="realrealprofile" src="{% static 'profile1.png'%}" alt="profile">
+        </div>
+        <div class="name">
+            <p>사용자 닉네임</p>
+        </div>
+        <div class="portfolio">
+            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
+        </div>
+        <div class="title">
+            <p>서울시 성북구에서 활동할 팀원 구합니다.</p>
+        </div>
+        <div class="time">
+            <p>성신여자대학교  |  4시간 전</p>
+        </div>
+        <div class="writing">
+            <p>수상 목표로 한 달간 열심히 하실 분들이셨으면 좋겠습니다. 모임 요일과 시간은 같이 협의해요. 프리미어 프로 다루실 수 있는
+                분들만 받겠습니다. 영상 제작 경험과 영상 공모전 수상 경험이 있기 때문에 저희 팀 들어오시면 수월하실 것 같습니다. 
+                포트폴리오 확인해 보시고 같이 하시고 싶으시면 편하게 연락주세요.
+            </p>
+        </div>
+        <hr class="line">
+        <div class="team">
+            <p>현재 팀원 3명 중 2명 모집 완료</p>
+        </div>
+        <div class="img2">
+            <img class="realrealprofile" src="{% static 'profile2.png'%}" alt="profile">
+        </div>
+        <div class="name2">
+            <p>사용자 닉네임</p>
+        </div>
+        <div class="portfolio2">
+            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
+        </div>
+        <div class="img3">
+            <img class="realrealprofile" src="{% static 'profile3.png'%}" alt="profile">
+        </div>
+        <div class="name3">
+            <p>사용자 닉네임</p>
+        </div>
+        <div class="portfolio3">
+            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
+        </div>
+    </div>
+</body>

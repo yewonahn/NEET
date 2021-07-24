@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            /* padding: 10px; */
+            background: white;
+        }
+
+        /* NAV바 */
+        nav ul {
+            width: 100%;
+            background-color: white;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 12%;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {background-color: #f1f1f1}
+        #drop-menu:hover {
+            background-color: #2044FF;
+            padding: 18px;
+            color: white;
+        }
+        .login, .signup, .search-bar {
+            font-size: smaller;
+            float: right;
+        }
+        .signup {
+            margin-right: 12%;
+        }
+        .login a, .signup a, .search-bar {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 23px 19px 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 50px;
+        }
+        .profile {
+            width:30px;
+            vertical-align:middle;
+            margin: 0 5px 5px 0;
+        }
+        /* footer(광고 배너 이미지 영역) */
+        .footer {
+            margin: 20px 6%;
+            height: auto;
+            width: 87%;
+        }
+        /* 필터 */
+        .filter ul {
+            width: 76%;
+            background-color: white;
+            list-style-type: none;
+            margin: 0 auto 25px auto;
+            padding: 0;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        .filter ul li {
+            display: inline-block;
+        }
+        .search {
+            margin: 14px 70px;
+        }
+        #filter:hover {
+            /* background-color: gray; */
+            background-color: #2044FF;
+            padding: 18px;
+            color: white;
+        }
+        /* 리스트 */
+        .list {
+            width: 80%;
+            margin: auto;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .post {
+            background-color: white;
+            margin: 5px 5px 5px 5px;
+            width: 300px;
+            height: 505px;
+            cursor: pointer;
+        }
+        .poster {
+            width: 300px;
+            padding: 20px 20px 0 20px;
+            height: 364px;
+            margin-bottom: 5px;
+            object-fit: cover;
+            object-position: center top;
+        }
+        label {
+            color: white;
+            /* background-color: black; */
+            background-color: #2044FF;
+            padding: 4px 10px;
+            margin: 0 0 0 20px;
+        }
+        h3, h4 {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        i {
+            float: right;
+            margin: 5px 20px 0 0;
+        }
+        a{
+            text-decoration:none
+        }
+        a:link{
+            color:black;
+        }
+        a:visited{
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="drop-menu" id="logo">NEET</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">소개</div>
+                <div class="drop-content">
+                    <a href="#">NEET란?</a>
+                    <a href="#">이용방법</a>
+                    <a href="#">운영진 소개</a>
+                </div>
+            </li>
+            <li class="drop" >
+                <div class="drop-menu" id="drop-menu">공모전</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">포트폴리오</div>
+            </li>
+            <!-- <li class="login"><a href="#"><img class="profile" src="https://image.flaticon.com/icons/png/128/3237/3237472.png" alt="프로필"> 로그아웃</a></li> -->
+            <li class="signup"><a href="{% url 'signup' %}">회원가입</a></li>
+            <li class="login"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
+            <li class="login"><a href="{% url 'login' %}">로그인</a></li>
+            <li class="search-bar">검색</li>
+        </ul>
+    </nav>
+    <footer>
+        <div class="footer">
+            <img class="footer" src="https://allforyoung-maycan-seoul.s3.ap-northeast-2.amazonaws.com/uploads/banner_photos/2021/06/15/a731f4ad1f0b4de798c412d379baf063" alt="창작통일동요공모">
+        </div>
+    </footer>
+    <div class="filter">
+        <ul>
+            <li class="search">검색</li>
+            <li class="drop">
+                <div class="drop-menu" id="filter">분야</div>
+                <div class="drop-content">
+                    <a href="#">기획/아이디어</a>
+                    <a href="#">광고</a>
+                    <a href="#">영상/디자인</a>
+                    <a href="#">SW</a>
+                </div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="filter">최신순</div>
+                <div class="drop-content">
+                    <a href="#">조회순</a>
+                    <a href="#">좋아요순</a>
+                    <a href="#">마감임박순</a>
+                </div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="filter">기간</div>
+                <div class="drop-content">
+                    <a href="#">모집 예정</a>
+                    <a href="#">모집 중</a>
+                    <a href="#">모집 마감</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="list">
+        <div class="row">
+            <div class="post">
+                <img class="poster" src="https://allforyoung-maycan-seoul.s3.ap-northeast-2.amazonaws.com/uploads/post_photos/2021/06/23/37be87084a7c476187b08812f9bd2326.jpg" alt="KCG인삼공사 지니어스 마케팅">
+                <label>D-14</label>
+                <h3>KCG인삼공사 지니어스 마케팅 …</h3>
+                <h4>KCG인삼공사 
+                    <i class="far fa-heart">&nbsp45</i>
+                    <i class="far fa-eye">&nbsp123</i>
+                </h4> 
+            </div>
+            <div class="post">
+                <img class="poster" src="https://s3.ap-northeast-2.amazonaws.com/media.linkareer.com/activity_manager/posters/2021-06-151327260497010_%ED%8F%AC%EC%8A%A4%ED%84%B0.png" alt="국가물관리위원회 영상 공모전 포스터">
+                <label>D-11</label>
+                <h3><a href="{% url 'competition' %}">국가물관리위원회 영상 공모전</a></h3>
+                <h4>국가물관리위원회
+                    <i class="far fa-heart">&nbsp25</i>
+                    <i class="far fa-eye">&nbsp426</i>
+                </h4>
+            </div>
+            <div class="post">
+                <img class="poster" src="https://allforyoung-maycan-seoul.s3.ap-northeast-2.amazonaws.com/uploads/post_photos/2021/06/29/0161863021794f84b452e2179bd50eaa.jpg" alt="2021 메타버스 CG 리크루팅 캠프">
+                <label>D-10</label>
+                <h3>2021 메타버스 CG 리크루팅 캠프</h3>
+                <h4>과학기술정보통신부
+                    <i class="far fa-heart">&nbsp4</i>
+                    <i class="far fa-eye">&nbsp121</i>
+                </h4>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 5%;">
+            <div class="post">
+                <img class="poster" src="https://allforyoung-maycan-seoul.s3.ap-northeast-2.amazonaws.com/uploads/post_photos/2021/06/29/076ad4e055a2492db3dbf35346def27c.jpg" alt="경기도 스마트시티 아이디어 해커톤 포스터">
+                <label>D-23</label>
+                <h3>2021 경기도 스마스시티 아이 … </h3>
+                <h4>차세대융합기술연구원
+                    <i class="far fa-heart">&nbsp2</i>
+                    <i class="far fa-eye">&nbsp75</i>
+                </h4> 
+            </div>
+            <div class="post">
+                <img class="poster" src="https://allforyoung-maycan-seoul.s3.ap-northeast-2.amazonaws.com/uploads/post_photos/2021/06/29/04b00bdcd5734419a1d938fe523540c2.jpg" alt="국민 행복 플러스 혁신 아이디어 공모전">
+                <label>D-22</label>
+                <h3>국민행복플러스 혁신 아이디어 … </h3>
+                <h4>한국사회보장정보원
+                    <i class="far fa-heart">&nbsp42</i>
+                    <i class="far fa-eye">&nbsp140</i>
+                </h4>
+            </div>
+            <div class="post">
+                <img class="poster" src="https://allforyoung-maycan-seoul.s3.ap-northeast-2.amazonaws.com/uploads/post_photos/2021/06/28/bf061d2d61bb4177a9271c96ba58c0b5.jpg" alt="2021 중구 도심산업박람회">
+                <label>D-10</label>
+                <h3>2021 중구 도심산업박람회</h3>
+                <h4>서울시 중구
+                    <i class="far fa-heart">&nbsp21</i>
+                    <i class="far fa-eye">&nbsp135</i>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

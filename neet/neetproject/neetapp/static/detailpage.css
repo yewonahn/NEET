@@ -1,0 +1,130 @@
+.bigbox {
+    border-radius:20px;
+    border: 2px solid #C2C2C2;
+    padding:280px;
+    margin-top:800px;
+    margin-left:200px;
+    margin-right:200px;
+    position:relative;
+}
+.img1 {
+    position:absolute;
+    top:45px;
+    left:60px;
+    width: 65px;
+    height:65px;
+    border-radius:70%;
+    overflow:hidden;
+    text-align: center;
+}
+.realrealprofile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    text-align: center;
+}
+.name {
+    position:absolute;
+    top:30px;
+    left:140px;
+    font-size:17px;
+    font-weight:bold;
+}
+.portfolio{
+    position:absolute;
+    top:80px;
+    left:140px;
+    font-size:12px;
+}
+a {
+    color:#2044FF;
+    text-decoration-line:none;
+}
+.title {
+    position:absolute;
+    font-size:22px;
+    left:60px;
+    right:60px;
+    top:125px;
+    font-weight:bold;
+}
+.time {
+    position:absolute;
+    font-size:14px;
+    left:60px;
+    top:172px;
+    color:rgb(151, 150, 150);
+}
+.writing {
+    position:absolute;
+    font-size:15px;
+    left:60px;
+    right:60px;
+    top:220px;
+}
+hr.line{
+    position:absolute;
+    top:350px;
+    left:60px;
+    right:60px;
+    border: 0.3px solid #c2c2c2;
+    text-align: center;
+}
+.team {
+    position:absolute;
+    font-size:15px;
+    top:395px;
+    left:60px;
+    right:60px;
+    color:rgb(151, 150, 150);
+}
+.img2 {
+    position:absolute;
+    top:450px;
+    left:60px;
+    width: 65px;
+    height:65px;
+    border-radius:70%;
+    overflow:hidden;
+    text-align: center;
+}
+.img3 {
+    position:absolute;
+    top:450px;
+    left:320px;
+    width: 65px;
+    height:65px;
+    border-radius:70%;
+    overflow:hidden;
+    text-align: center;
+}
+.name2 {
+    position:absolute;
+    top:435px;
+    left:140px;
+    font-size:17px;
+    font-weight:bold;
+}
+.name3 {
+    position:absolute;
+    top:435px;
+    left:400px;
+    font-size:17px;
+    font-weight:bold;
+}
+.portfolio2{
+    position:absolute;
+    top:485px;
+    left:140px;
+    font-size:12px;
+}
+.portfolio3{
+    position:absolute;
+    top:485px;
+    left:400px;
+    font-size:12px;
+}
+.img {
+    position: relative;
+    z-index:0;
+}

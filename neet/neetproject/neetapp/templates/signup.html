@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sign up page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+<div class="neet">
+<h4>NEET</h4>
+</div>
+<div class="intro">
+<h4>에 오신 것을 환영합니다!</h4>
+</div>
+<br>
+<div class="explain">
+<h6>
+    NEET는 함께 성장해나갈 수 있는 팀프로젝트에 최적화된 서비스입니다.
+    <br>
+    NEET의 회원이 되시면 게시판 이용 ,팀(팀원) 구하기, 후기 남기기 등의 서비스를 이용하실 수 있습니다.  
+</h6>
+</div>
+<body>
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="drop-menu" id="logo">NEET</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">소개</div>
+                <div class="drop-content">
+                    <a href="#">NEET란?</a>
+                    <a href="#">이용방법</a>
+                    <a href="#">운영진 소개</a>
+                </div>
+            </li>
+            <li class="drop" >
+                <div class="drop-menu" id="drop-menu">공모전</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">포트폴리오</div>
+            </li>
+            <!-- <li class="login"><a href="#"><img class="profile" src="https://image.flaticon.com/icons/png/128/3237/3237472.png" alt="프로필"> 로그아웃</a></li> -->
+            <li class="search-bar">검색</li>
+        </ul>
+    </nav>
+    
+    <div class="formname">
+        <label>이름</label>
+    </div>
+    <br>
+    <div class="name">
+        <input type="text">
+    </div>
+    
+    <br>
+
+    <div class="formnickname">
+        <label>별명</label>
+    </div>
+
+    <br>
+
+    <div class="nickname">
+        <input type="text">
+    </div>
+
+    <br>
+
+    <div class="formemail">
+        <label>이메일</label>
+    </div>
+    <br>
+    <div class="email">
+        <input type="text" size=12>
+        <tr>@</tr>
+        
+    <select>
+        <option selected>naver.com</option>
+        <option>daum.net</option>
+        <option>gmail.com</option>
+        <option>nate.com</option>
+        <option>직접 입력</option>
+    </select>
+    </div>
+    <br>
+
+    <div class="formpassword">
+        <label>비밀번호</label>
+    </div>
+    <br>
+    <div class="password">
+        <input type="password" name="password" placeholder="비밀번호를 입력하세요.">
+    </div>
+
+    <br>
+
+    <div class="formpasswordcheck">
+        <label>비밀번호확인</label>
+    </div>
+    <br>
+    <div class="passwordcheck">
+        <input type="password" name="password" placeholder="비밀번호를 재입력하세요.">
+    </div>
+
+    <br>
+    <div class="formschool">
+        <label>학교</label>
+    </div>
+    <br>
+    <div class="school">
+        <input type="text">
+    </div>
+
+    <br>
+
+    <div class="formmajor">
+        <label>학과</label>
+    </div>
+    <br>
+    <div class="major">
+        <input type="text">
+    </div>
+
+
+    
+
+
+    <td><button>
+        <a href="{% url 'login' %}">가입하기</a>
+    </button>
+
+    
+    
+
+    
+    
+</table>

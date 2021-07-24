@@ -1,0 +1,576 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+         @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: white;
+        }
+        nav ul, .filter ul {
+            list-style-type: none;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 12%;
+        }
+        nav ul li, .filter ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            padding: 12px 16px;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {
+            background-color: #f1f1f1
+        }
+        #drop-menu:hover, #filter:hover, .logout:hover {
+            background-color: #2044FF;
+            color: white;
+        }
+        #drop-menu:hover, #filter:hover {
+            padding: 18px;
+        }
+        .myteam, .mypage, .search-bar, .logout, .id, .profile {
+            font-size: smaller;
+            float: right;
+        }
+        .mypage {
+            margin-right: 12%;
+        }
+        .myteam a, .mypage a, .search-bar, .id a, .drop-content a, .profile a {
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+        .myteam a, .mypage a, .search-bar {
+            padding: 23px 19px 23px 0;
+        }
+        .id a {
+            padding: 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 30px;
+        }
+        .logout {
+            font-size: xx-small;
+            margin: 21px 30px 21px 10px;
+            text-align: center;
+            width: 60px;
+            padding: 3px;
+            border-radius: 20px;
+            border: 1px solid #2044FF;
+            color: #2044FF;
+            cursor: pointer;
+        }
+        #profile {
+            margin: 12px 10px 0 0;
+            width: 40px;
+        }
+        h4{
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 36px;
+
+            color: #000000;
+        }
+        .title{
+            position: absolute;
+            width: 370px;
+            height: 36px;
+            left: calc(50% - 370px/2 - 415px);
+            top: 200px;
+
+        }
+        .port{
+            position: absolute;
+            width: 190px;
+            height: 36px;
+            left: calc(50% - 190px/2);
+            top: 515px;
+        }
+        h6{
+            position: absolute;
+            width: 252px;
+            height: 22px;
+            left: calc(50% - 252px/2 - 474px);
+            top: 240px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 22px;
+            /* identical to box height */
+
+
+            color: #747474;
+        }
+
+        .num1{
+            position: absolute;
+            width: 25px;
+            height: 22px;
+            left: calc(50% - 25px/2 - 392.5px);
+            top: 277.5px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+            color: #747474;
+            
+        }
+        .num2{
+                        position: absolute;
+            width: 25px;
+            height: 22px;
+            left: calc(50% - 25px/2 - 335.5px);
+            top: 277.5px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+            color: #747474;
+
+        }
+        .user{
+            position: absolute;
+            width: 87px;
+            height: 18px;
+            left: calc(50% - 87px/2 - 498.5px);
+            top: 163px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+        .intro{
+            position: absolute;
+            width: 500px;
+            height: 46px;
+            left: calc(50% - 490px/2 - 250px);
+
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+        .intro1{
+            position: absolute;
+            top: 293px;
+        }
+        .intro2{
+            position: absolute;
+            top: 329px;
+        }
+        .intro3{
+            position: absolute;
+            top: 365px;
+        }
+        .explain{
+            position: absolute;
+            width: 50px;
+            height: 22px;
+            left: calc(50% - 28px/2 - 586px);
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 22px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+        .explain1{
+            position: absolute;
+            top: 293px;
+        }
+        .explain2{
+            position: absolute;
+            top: 329px;
+        }
+        .explain3{
+            position: absolute;
+            top: 365px;
+        }
+        .circle{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: calc(50% - 40px/2 - 580px);
+            top: 170px;
+            border-radius: 100px;
+            
+            background: #EEEEEE;
+        }
+        .portex{
+            position: absolute;
+            width: 677px;
+            height: 20px;
+            left: calc(50% - 677px/2 + 0.5px);
+            top: 570px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 15px;
+            /* or 100% */
+            
+            text-align: center;
+        }
+        .squre1{
+            position: absolute;
+            width: 1200px;
+            height: 600px;
+            left: calc(50% - 1200px/2);
+            top: 635px;
+            
+            background: #E2E2E2;
+        }
+        .squre2{
+            position: absolute;
+            width: 1200px;
+            height: 600px;
+            left: calc(50% - 1200px/2);
+            top: 1270px;
+            
+            background: #E2E2E2;
+        }
+        .squre3{
+            position: absolute;
+            width: 1200px;
+            height: 600px;
+            left: calc(50% - 1200px/2);
+            top: 1970px;
+            
+            background: #E2E2E2;
+        }
+        .squre4{
+            position: absolute;
+            width: 1200px;
+            height: 600px;
+            left: calc(50% - 1200px/2);
+            top: 2670px;
+            
+            background: #E2E2E2;
+        }
+        .ex1{
+            position: absolute;
+            width: 454px;
+            height: 15px;
+            left: calc(50% - 454px/2);
+            top: 1895px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 15px;
+            /* identical to box height, or 100% */
+            
+            text-align: center;
+            
+            color: #000000;
+        }
+        .ex2{
+            position: absolute;
+            width: 540px;
+            height: 15px;
+            left: calc(50% - 454px/2);
+            top: 2593px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 15px;
+            /* identical to box height, or 100% */
+            
+            text-align: center;
+            
+            color: #000000;
+            
+        }
+        .profilecircle{
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            left: calc(50% - 130px/2);
+            top: 3407px;
+
+            background: #EEEEEE;
+            border-radius: 100px;
+        }
+        .username{
+            position: absolute;
+            width: 115px;
+            height: 29px;
+            left: calc(50% - 115px/2 - 0.5px);
+            top: 3530px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 29px;
+            /* identical to box height */
+            
+            text-align: center;
+            
+            color: #000000;
+            
+        }
+        button{
+            position: absolute;
+            width: 150px;
+            height: 35px;
+    
+            background-color: white;
+            color:#2044FF;
+            border: 1px solid #2044FF;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+        }
+        button:hover{
+            background:#2044FF;
+            color:white;
+        }
+        .allbutton{
+            margin:auto;
+        }
+        .btn1{
+            position: absolute;
+            width: 70px;
+            height: 22px;
+            left: 596px;
+            top: 3613px;
+            padding-bottom: 70px;
+            
+
+        }
+        .btn2{
+            position: absolute;
+            width: 70px;
+            height: 22px;
+            left: 772px;
+            top: 3613px;
+            padding-bottom: 70px;
+            
+        }
+        .line1{
+            position: absolute;
+            left: calc(50% - 1200px/2);
+            top: 500px;
+        }
+        .line2{
+            position: absolute;
+            left: calc(50% - 1200px/2);
+            top: 3340px;
+        }
+        a{
+            text-decoration:none
+        }
+        a:link{
+            color:black;
+        }
+        a:visited{
+            color:black;
+        }
+        #profile {
+            margin: 12px 10px 0 0;
+            width: 40px;
+        }
+    </style>
+    <head>
+
+        <title>login page</title>
+    
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li class="drop">
+                    <div class="drop-menu" id="logo">NEET</div>
+                </li>
+                <li class="drop">
+                    <div class="drop-menu" id="drop-menu">소개</div>
+                    <div class="drop-content">
+                        <a href="#">NEET란?</a>
+                        <a href="#">이용방법</a>
+                        <a href="#">운영진 소개</a>
+                    </div>
+                </li>
+                <li class="drop" >
+                    <div class="drop-menu" id="drop-menu">공모전</div>
+                </li>
+                <li class="drop">
+                    <div class="drop-menu" id="drop-menu">포트폴리오</div>
+                </li>
+                <li class="mypage"><a href="#">마이페이지</a></li>
+                <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
+                <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
+                <li class="logout">로그아웃</li>
+                <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
+                <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
+                <li class="search-bar">검색</li>
+            </ul>
+        </nav>
+    <div class=title>
+        <h4>World Is My Life 본인 소개 페이지</h4>
+    </div>
+
+    <div class=line1>
+        <hr size="1" width="1200" color="#9A9A9A" >
+    </div>
+    <div class=line2>
+        <hr size="1" width="1200" color="#9A9A9A" >
+    </div>
+
+    <div class=port>
+        <h4>World Is My Life</h4>
+    </div>
+
+    <h6>2021.05.29 | 디자인</h6>
+
+
+    <div class=num1>
+        <i class="far fa-eye">221</i>
+        
+    </div>
+    <div class=num2>
+        <i class="far fa-heart">221</i>
+    </div>
+
+    <img src = "{% static 'profile1.png'%}" class ="circle">
+
+    <div class=user><h5>미네쓰</h5></div>
+    <div class=intro>
+        <div class=intro1>
+            <h5>전체 PPT 기획 및 디자인</h5>
+        </div>
+        <div class=intro2>
+            <h5>2021.03 ~ 2021.04</h5>
+        </div>
+        <div class=intro3>
+            <h5>제 3회 청년 기획 공모전에 제출한 본인소개 PPT 입니다.<br>
+                직접 기획하고 PowerPoint를 이용하여 제작하였습니다. </h5>  
+        </div>
+    </div>
+
+    <div class=explain>
+        <div class=explain1>
+            <h5>기여</h5>
+        </div>
+        <div class=explain2>
+            <h5>작업 기간</h5>
+        </div>
+        <div class=explain3>
+        <h5>설명</h5>
+        </div>
+    </div>
+
+    <div class=portex>
+    <h5>본인을 소개하는 PPT입니다.</h5>
+    </div>
+    </div>
+  
+    <img src = "{% static '001.png'%}" class = "squre1">
+    <img src = "{% static '002.png'%}" class = "squre2">
+    <img src = "{% static '003.png'%}" class = "squre3">
+    <img src = "{% static '004.png'%}" class = "squre4">
+   
+ 
+    <div class=ex1>
+    <h5></h5>
+    </div>
+    <div class=ex2>
+    <h5></h5>
+    </div>
+ 
+    <img src="{% static 'profile1.png'%}" class="profilecircle">
+    <div class=username>
+        <h5>미네쓰</h5>
+    </div>
+    <div class=allbutton>
+    <div class=btn1>
+        <button>팔로우</button>
+    </div>
+    <div class=btn2>
+        <button>연락하기</button>
+    </div>
+    </div>
+    </body>

@@ -1,0 +1,824 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            /* padding: 10px; */
+            background: white;
+        }
+
+        /* NAV바 */
+        nav ul {
+            width: 100%;
+            background-color: white;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 12%;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {background-color: #f1f1f1}
+        #drop-menu:hover {
+            background-color: #2044FF;
+            padding: 18px;
+            color: white;
+        }
+        .myteam, .mypage, .search-bar, .logout, .id, .profile {
+            font-size: smaller;
+            float: right;
+        }
+        .mypage {
+            margin-right: 12%;
+        }
+        .myteam a, .mypage a, .search-bar, .id a, .profile a {
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+        .myteam a, .mypage a, .search-bar {
+            padding: 23px 19px 23px 0;
+        }
+        .id a {
+            padding: 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 50px;
+        }
+        .logout {
+            font-size: xx-small;
+            margin: 21px 30px 21px 10px;
+            text-align: center;
+            width: 60px;
+            padding: 3px;
+            border-radius: 20px;
+            border: 1px solid #2044FF;
+            color: #2044FF;
+            cursor: pointer;
+        }
+        #title1 {
+            position: absolute;
+            margin: auto;
+
+            height: 22px;
+            left: 340px;
+            top: 900px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+        #context1{
+            position: absolute;
+            height: 69px;
+            left: 455px;
+            top: 897px;
+            margin: auto;
+
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+
+
+        #title2 {
+            position: absolute;
+            height: 22px;
+            left: 340px;
+            top: 980px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 22px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+
+        #context2{
+            position: absolute;
+            height: 69px;
+            left: 455px;
+            top: 977px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+            color: #000000;
+        }
+
+        #title3 {
+            position: absolute;
+            height: 23px;
+            left: 340px;
+            top: 1087px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* identical to box height, or 153% */
+
+
+            color: #000000;
+        }
+
+        #context3{
+            position: absolute;
+            height: 115px;
+            left: 455px;
+            top: 1087px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+
+        }
+
+        #title4 {
+            position: absolute;
+            height: 23px;
+            left: 340px;
+            top: 1222px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* identical to box height, or 153% */
+
+
+            color: #000000;
+        }
+
+        #context4{
+            position: absolute;
+            height: 46px;
+            left: 455px;
+            top: 1222px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+
+        }
+
+        #title5 {
+            position: absolute;
+            width: 86px;
+            height: 23px;
+            left: 340px;
+            top: 1307px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* identical to box height, or 153% */
+            
+            
+            color: #000000;
+            
+        }
+
+        #context5{
+            position: absolute;
+            height: 161px;
+            left: 455px;
+            top: 1307px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+            
+            
+            color: #000000;
+
+        }
+        
+
+        #title6 {
+            position: absolute;
+            height: 23px;
+            left: 340px;
+            top: 1487px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* identical to box height, or 153% */
+
+
+            color: #000000;
+            
+        }
+
+        #context6{
+            position: absolute;
+            height: 69px;
+            left: 455px;
+            top: 1487px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+
+        }
+
+        #title7 {
+            position: absolute;
+            height: 20px;
+            left: 340px;
+            top: 1577px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+            
+            
+            color: #000000;
+            
+        }
+
+        #context7{
+            position: absolute;
+            height: 62px;
+            left: 455px;
+            top: 1577px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+            color: #000000;
+        }
+
+        #title8 {
+            position: absolute;
+            height: 20px;
+            left: 340px;
+            top: 1682px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+            
+            
+            color: #000000;
+            
+        }
+
+        #context8{
+            position: absolute;
+            height: 62px;
+            left: 455px;
+            top: 1682px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+        #title9 {
+            position: absolute;
+            height: 20px;
+            left: 340px;
+            top: 1807px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;   
+        }
+
+        #context9{
+            position: absolute;
+            height: 62px;
+            left: 455px;
+            top: 1807px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+
+        #title10 {
+            position: absolute;
+            height: 20px;
+            left: 340px;
+            top: 1862px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+
+        #context10{
+            position: absolute;
+            height: 62px;
+            left: 455px;
+            top: 1862px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+
+        #title11 {
+            position: absolute;
+            height: 20px;
+            left: 340px;
+            top: 1992px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+            
+            
+            color: #000000;
+        }
+
+        #context11{
+            position: absolute;
+            height: 162px;
+            left: 455px;
+            top: 1992px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 23px;
+            /* or 153% */
+
+
+            color: #000000;
+        }
+
+        #compet{
+            position: absolute;
+            width: 145px;
+            height: 200px;
+            top: 2297px;
+        }
+
+        #p1{
+            position: absolute;
+            height: 19px;
+            top: 2507px;
+
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 19px;
+            /* identical to box height */
+
+            color: #000000;
+
+        }
+
+        #title{
+            position: absolute;
+            height: 22px;
+            left: 725px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 22px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+
+        #context{
+            position: absolute;
+            height: 22px;
+            left: 830px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 22px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+        #test_btn1{
+            left: 726px;
+
+            color: #2044FF;
+            border: 1px solid #2044FF;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+            background-color: white;
+        }
+        #test_btn2{
+            left: 905px;
+
+            color: white;
+            background: #2044FF;
+            border-radius: 39.5px;
+        }   
+
+        #btn_group button{ 
+            position: absolute;
+            width: 150px;
+            height: 35px;
+            top: 675px;
+        
+        }
+
+        #btn_group button:hover{ color:white; background-color: skyblue; }
+
+        .input1{
+            border: none;
+
+            position: absolute;
+            width: 220px;
+            height: 28px;
+            left: 1000px;
+            top: 44px;
+
+            background: #EEEEEE;
+            border-radius: 39.5px;
+        }
+        
+        .circle{
+            border: none;
+            position: absolute;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            left: 1263px;
+            top: 43px;
+
+            background: #EEEEEE;
+        }
+        .eye{
+            position: absolute; width: 18px; height: auto; left: 627px; top: 205px;
+        }
+        button {
+            border: 1px solid #2044FF;
+            border-radius:10px;
+            color:#2044FF;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size:13px;
+            background-color:white;
+        }
+        #profile {
+            margin: 12px 10px 0 0;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="drop-menu" id="logo">NEET</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">소개</div>
+                <div class="drop-content">
+                    <a href="#">NEET란?</a>
+                    <a href="#">이용방법</a>
+                    <a href="#">운영진 소개</a>
+                </div>
+            </li>
+            <li class="drop" >
+                <div class="drop-menu" id="drop-menu">공모전</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">포트폴리오</div>
+            </li>
+            <li class="mypage"><a href="#">마이페이지</a></li>
+            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
+            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
+            <li class="logout">로그아웃</li>
+            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
+            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
+            <li class="search-bar">검색</li>
+        </ul>
+    </nav>
+    <div>
+    <img src="https://s3.ap-northeast-2.amazonaws.com/media.linkareer.com/activity_manager/posters/2021-06-151327260497010_%ED%8F%AC%EC%8A%A4%ED%84%B0.png" alt="imgblock" id='compet' style="position: absolute; width: 405px; height: 560px; left: 300px; top: 150px;">
+    <p style="position: absolute; width: 282px; height: 38px; left: 725px; 
+    top: 150px; font-family: Roboto; font-style: normal; font-weight: bold; font-size: 20px; line-height: 23px; color: #000000;">국가물관리위원회 영상 공모전</p>
+    <p style="position: absolute; width: 593px; height: 134px; left: 725px; top: 225px; font-family: Noto Sans KR;
+    font-style: normal; font-weight: normal; font-size: 13px; line-height: 23px; color: #000000;">물의 소중함과 지속가능한 통합물관리를 알리고 싶은 누구나 참여할 수 있는<br>
+    [국가물관리위원회 영상 공모전]을 개최합니다!<br>일상 속에서 많은 순간 함께하는 물의 소중함을 영상에 담아 널리 알릴 수 있는 기회!<br>여러분의 반짝이는 아이디어를 마음껏 표현해 주세요!</p>
+
+    <p><code id="title" style="top: 355px;"><b>분야</b></code> <code id="context"style="top: 355px;">영상/사진</code></p>
+    <p><code id="title" style="top: 391px;"><b>대상</b></code> <code id="context"style="top: 391px;">제한 없음</code></p>
+    <p><code id="title" style="top: 427px;"><b>주최</b></code> <code id="context"style="top: 427px;">국가물관리위원회</code></p>
+    <p><code id="title" style="top: 463px;"><b>주최사 유형</b></code> <code id="context"style="top: 463px;">중앙정부/기관</code></p>
+    <p><code id="title" style="top: 499px;"><b>접수기간</b></code> <code id="context"style="top: 499px;">2021.06.14(월) ~ 2021.07.30(금)</code></p>
+    <p><code id="title" style="top: 538px;"><b>총 상금</b></code> <code id="context"style="top: 538px;">1천만원 이하</code></p>
+    <p><code id="title" style="top: 577px;"><b>1등 상금</b></code> <code id="context"style="top: 577px;">300만원</code></p>
+    <p><code id="title" style="top: 616px;"><b>홈페이지</b></code> <code id="context"style="top: 616px;">https://blog.naver.com/water_0827/222397389069</code></p>
+
+
+    <div id="btn_group">
+        <button id="test_btn1">저장하기</button>
+        <button id="test_btn2">참가하기</button>
+    </div>
+
+    <a href="{% url 'competition' %}" style="
+    position: absolute;
+    width: 79px;
+    height: 19.7px;
+    left: 340px;
+    top: 800px;
+
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #000000;
+    text-decoration:none;"><b>상세 정보</b></a>
+    <a href="{% url 'recruitmentlist' %}" style="position: absolute;
+    width: 79px;
+    height: 19.7px;
+    left: 730px;
+    top: 800px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+    text-decoration:none;">팀 구하기</a>
+    <a href="{% url 'members' %}" style="position: absolute;
+    height: 19px;
+    left: 1120px;
+    top: 800px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+    text-decoration:none;">팀원 구하기</a>
+
+    <hr style="position: absolute;
+    width: 1200px;
+    height: 0px;
+    left: 120px;
+    right:120px;
+    top: 825px;
+    text-align:center;
+    border: 0.1px solid #9A9A9A;">
+
+    <hr style="position: absolute;
+    width: 200px;
+    height: 0px;
+    left: 280px;
+    top: 825px;
+    text-align:center;
+    border: 2px solid black;
+    background-color: black;">
+
+    <p><b id="title1">접수기간</b> <code id="context1">2021.06.14(월) ~ 2021.07.30(금)<br> ※ 마감일 18시까지 접수 가능</code></p>
+    <p><b id="title2">공모자격</b> <code id="context2">물의 소중함과 지속가능한 통합물관리를 알리고 싶은 누구나<br> ※ 팀(단체) 접수의 경우 팀 당 최대 4명까지만 참여 가능합니다.<br> ※ 팀(단체) 수상시 참가자 전원의 이름이 기재된 1부의 상장만 수여됩니다.</code></p>
+    <p><b id="title3">공모주제</b> <code id="context3">* 3안 중 택1<br> ① 일상 속 물의 소중함과 지속가능성에 대해 표현하는 자유 형식 영상<br> ② 한 곳으로 모이는 통합물관리에 대해 표현하는 자유 형식 영상<br> ③ 통합, 물, 지속가능성의 세가지 키워드를 주제로 제작한 영상</code></p>
+    <p><b id="title4">접수부문</b> <code id="context4">개인 또는 단체(4인 이내) 중 택1<br>※중복 참여 불가합니다.</code></p>
+    <p><b id="title5">영상규격</b> <code id="context5">주제를 담은 순수 영상 창작물(브이로그, 광고, 애니메이션, 모션그래픽 등)<br> (MP4, MOV, AVI 등 500MB 내외, 해상도 1,280x720pixel 이상, 화면비율 16:9 권장)<br> ※ 수상작은 추후 고화질 원본파일 제출 필수<br> ※ 영상 내 음원 및 모든 소스는 저작권, 초상권 등의 법적 문제가 없어야 함 <br>s※ 한 명(팀)당 1작품까지 출품 가능, 중복 참여 불가(개인/팀 중 택1)
+        <br> ※ 수상작은 일반에 공개하고, 홍보물로 제작, 복제, 배포 등에 활용할 수 있음</code></p>
+    <p><b id="title6">접수방법</b> <code id="context6">① 참가신청서 작성 ( https://url.kr/sy73tf ) 후<br> ② 출품 영상은 이메일(water@formform.co.kr)로 전송</code></p>
+    <p><b id="title7">이메일 양식</b> <code id="context7">① 메일의 제목 - [대표 참여자 성함_주제_작품 제목] (예시:김국가_주제1_물과일상)<br> ② 영상의 제목 - [대표 참여자 성함_작품 제목] (예시:김국가_물과일상)<br> ③ 메일의 내용 - 참여 인원 / 공모주제 / 간단한 영상 소개</code></p>
+    <p><b id="title8">심사기준</b> <code id="context8">주제 적합성(30%) : 선택한 주제와 작품 간의 적합성<br> 표현성(20%) : 주제와 어울리는 표현 방법 사용 유무<br> 완성도(30%) : 전체적인 연출 및 최종 완성도 수준<br> 전달력(20%) : 작품의 심미성 및 표현 능력 수준</code></p>
+    <p><b id="title9">결과발표</b> <code id="context9">국가물관리위원회 페이스북과 블로그를 통해 발표 및 개별 통보</code></p>
+    <p><b id="title10">시상계획</b> <code id="context10">총 15작품 선정, 상장 및 부상 (총 상금 1,000만원)<br> 대상 : 상장 및 상금 300만원(1작품, 환경부장관상)<br> 우수 : 상장 및 상금 100만원(4작품, 환경부장관상) 장려 : 상금 30만원(10작품)</code></p>
+    <p><b id="title11">문의</b> <code id="context11">국가물관리위원회 영상 공모전 운영사무국 폼폼커뮤니케이션<br> (메일 : water@formform.co.kr / 전화번호 : 02-514-7866)
+        <br> ※ 문의시간 : 월~금 10:00-17:00, 시간 외 문의전화는 연결이 어렵습니다.<br> 공모전 작품은 이메일(water@formform.co.kr)로 까지 받습니다.<br> [참가신청서 작성]과 [출품영상 이메일 전송]이 기간 내에 모두 완료되어야 접수가 완료됩니다.<br> 착오 없으시길 바랍니다. 감사합니다.</code></p>
+
+    <hr style="position: absolute;
+    width: 1200px;
+    height: 0px;
+    left: 120px;
+    top: 2197px;
+    
+    border: 1px solid #9A9A9A;
+    transform: matrix(0.71, 0, -inf, -nan, 0, 0);">
+    
+    <p style="position: absolute;
+    width: 187px;
+    height: 20px;
+    left: 340px;
+    top: 2250px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    
+    color: #000000;"><b>최근에 본 공모전</b></p>
+
+    <div>
+        <img src="{% static 'contest1.png'%}" alt="imgblock" id='compet' style="left: 340px;">
+        <p id='p1' style="left: 340px;">국가물관리위원회 영상 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'contest2.png'%}" alt="imgblock" id='compet' style="left: 516px;">
+        <p id='p1' style="left: 516px;">제 12회 살기 좋은 마을 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'contest3.png'%}" alt="imgblock" id='compet' style="left: 692px;">
+        <p id='p1' style="left: 692px;">제 25회 LH 대학생 주택 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'compet1.png'%}" alt="imgblock" id='compet' style="left: 868px;">
+        <p id='p1' style="left: 868px;">제 3회 유니버셜 디자인 ...</p>
+    </div>
+
+    <p style="position: absolute;
+    width: 187px;
+    height: 20px;
+    left: 340px;
+    top: 2575px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    
+    color: #000000;"><b>관련 공모전</b></p>
+
+    <div>
+        <img src="{% static 'compet1.png'%}" alt="imgblock" id='compet' style="left: 340px; top: 2622px;">
+        <p id='p1' style="left: 340px;top: 2832px;">국가물관리위원회 영상 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'compet2.jpg'%}" alt="imgblock" id='compet' style="left: 516px;top: 2622px;">
+        <p id='p1' style="left: 516px;top: 2832px;">제 12회 살기 좋은 마을 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'compet3.jpg'%}" alt="imgblock" id='compet' style="left: 692px;top: 2622px;">
+        <p id='p1' style="left: 692px;top: 2832px;">제 25회 LH 대학생 주택 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'compet4.jpg'%}" alt="imgblock" id='compet' style="left: 868px;top: 2622px;">
+        <p id='p1' style="left: 868px;top: 2832px;">제 3회 유니버셜 디자인 ...</p>
+    </div>
+    <div>
+        <img src="{% static 'compet5.jpg'%}" alt="imgblock" id='compet' style="left: 1044px;top: 2622px;">
+        <p id='p1' style="left: 1044px;top: 2832px;">제 5회 2021 성평등콘텐 ...</p>
+    </div>
+</body>
+</html>
