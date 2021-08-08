@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 import neetapp.views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +35,5 @@ urlpatterns = [
     path('signup/',neetapp.views.signup, name="signup"),
     path('message/',neetapp.views.message,name="message"),
     path('', neetapp.views.home, name="home"),
+    path('accounts/', include('accounts.urls')),
 ]

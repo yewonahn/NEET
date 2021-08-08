@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sign up page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    {% extends 'base.html'%}
+    {% block contents %}
+</head>
+<body>
+    <form method = "POST" action="{%url 'signup'%}">
+        {% csrf_token %}
+    <div class="formname">
+        <label>이름</label>
+    </div>
+    <br>
+    <div class="name">
+        <input type="text" name="username">
+    </div>
+    
+    <br>
+
+    <div class="formnickname">
+        <label>별명</label>
+    </div>
+
+    <br>
+
+    <div class="nickname">
+        <input type="text" name="nickname">
+    </div>
+
+    <br>
+
+    <div class="formemail">
+        <label>이메일</label>
+    </div>
+    <br>
+    <div class="email">
+        <input type="text" size=12 name="email">
+        <tr>@</tr>
+        
+    <select>
+        <option selected>naver.com</option>
+        <option>daum.net</option>
+        <option>gmail.com</option>
+        <option>nate.com</option>
+        <option>직접 입력</option>
+    </select>
+    </div>
+    <br>
+
+    <div class="formpassword">
+        <label>비밀번호</label>
+    </div>
+    <br>
+    <div class="password">
+        <input type="password" name="password1" placeholder="비밀번호를 입력하세요.">
+    </div>
+
+    <br>
+
+    <div class="formpasswordcheck">
+        <label>비밀번호확인</label>
+    </div>
+    <br>
+    <div class="passwordcheck">
+        <input type="password" name="password2" placeholder="비밀번호를 재입력하세요.">
+    </div>
+
+    <br>
+    <div class="formschool">
+        <label>학교</label>
+    </div>
+    <br>
+    <div class="school">
+        <input type="text" name="school">
+    </div>
+
+    <br>
+
+    <div class="formmajor">
+        <label>학과</label>
+    </div>
+    <br>
+    <div class="major">
+        <input type="text" name="major">
+    </div>
+
+
+    
+
+
+    <td><button>
+        <a href="{% url 'login' %}">가입하기</a>
+    </button>
+
+    
+</form>
+{% end block %}
+</body>

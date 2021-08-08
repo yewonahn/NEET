@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            /* padding: 10px; */
+            background: white;
+        }
+
+        /* NAV바 */
+        nav ul {
+            width: 100%;
+            background-color: white;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 12%;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {background-color: #f1f1f1}
+        #drop-menu:hover {
+            background-color: #2044FF;
+            padding: 18px;
+            color: white;
+        }
+        .login, .signup, .search-bar {
+            font-size: smaller;
+            float: right;
+        }
+        .signup {
+            margin-right: 12%;
+        }
+        .login a, .signup a, .search-bar {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 23px 19px 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 50px;
+        }
+        .profile {
+            width:30px;
+            vertical-align:middle;
+            margin: 0 5px 5px 0;
+        }
+        body {
+
+            font-family: 'Noto Sans KR', sans-serif;
+            padding: 10px;
+            background-image: url("{% static 'logback.png'%}");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 100px;
+            Opacity: 45 ;
+            margin:0;
+        }
+
+        input{
+            border:none;
+            background-color: #f1f1f1;
+        }
+        .neet {
+            position: absolute;
+            width: 76px;
+            height: 39px;
+            left: 1038px;
+            top: 251px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 36px;
+            
+            color: #2044FF;
+        }
+        .intro {
+            position: absolute;
+            width: 262px;
+            height: 47px;
+            left: 1106px;
+            top: 251px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 25px;
+            line-height: 36px;
+            
+            color: #000000;
+        }
+        .explain {
+            position: absolute;
+            width: 520px;
+            height: 31px;
+            left: 940px;
+            top: 296px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 22px;
+            text-align: center;
+            
+            color: #000000;
+            
+        }
+        .formid{
+            position: absolute;
+            width: 36px;
+            height: 19px;
+            left: 1025px;
+            top: 401px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 19px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+        .formpassword{
+            position: absolute;
+            width: 48px;
+            height: 19px;
+            left: 1025px;
+            top: 449px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 19px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+
+        }
+        .id{
+            position: absolute;
+            width: 250px;
+            height: 35px;
+            left: 1124px;
+            top: 393px;
+            line-height: 35px;
+            padding-left: 15px;
+            
+            background: #EEEEEE;
+            border-radius: 39.5px;
+        }
+        .password{
+            position: absolute;
+            width: 250px;
+            height: 35px;
+            left: 1124px;
+            top: 441px;
+            line-height: 35px;
+            padding-left: 15px;
+            
+            background: #EEEEEE;
+            border-radius: 39.5px;
+        }
+        button{
+            position: absolute;
+            width: 349px;
+            height: 50px;
+            left: 1025px;
+            top: 506px;
+            
+            background-color: #2044FF;
+            border-radius: 39.5px;
+            color:white;
+            border:none;
+        }
+        .save{
+            position: absolute;
+            width: 110px;
+            height: 19px;
+            left: 1265px;
+            top: 569px;
+            
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 19px;
+            /* identical to box height */
+            
+            
+            color: #000000;
+        }
+        a{
+            text-decoration:none
+        }
+        a:link{
+            color:white;
+        }
+        a:visited{
+            color:white;
+        }
+    </style>
+<head>
+    
+
+    <title>login page</title>
+
+</head>
+<div class="neet">
+    <h4>NEET</h4>
+    </div>
+    <div class="intro">
+    <h4>에 오신 것을 환영합니다!</h4>
+    </div>
+    <br>
+    <div class="explain">
+    <h6>NEET는 함께 성장해나갈 수 있는 팀프로젝트에 최적화된 서비스입니다.</h6>
+    </div>
+
+
+<body>
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="drop-menu" id="logo">NEET</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">소개</div>
+                <div class="drop-content">
+                    <a href="#">NEET란?</a>
+                    <a href="#">이용방법</a>
+                    <a href="#">운영진 소개</a>
+                </div>
+            </li>
+            <li class="drop" >
+                <div class="drop-menu" id="drop-menu">공모전</div>
+            </li>
+            <li class="drop">
+                <div class="drop-menu" id="drop-menu">포트폴리오</div>
+            </li>
+            <!-- <li class="login"><a href="#"><img class="profile" src="https://image.flaticon.com/icons/png/128/3237/3237472.png" alt="프로필"> 로그아웃</a></li> -->
+
+            <li class="search-bar">검색</li>
+        </ul>
+    </nav>
+<table>
+<form method = "POST" action="{%url 'login'%}">
+    {% csrf_token %}
+    <div class="formid">
+        <label>아이디</label>
+    </div>
+    
+    <div class="id">
+        <input type="text" name="username">
+    </div>
+
+    <div class="formpassword">
+        <label>비밀번호</label>
+    </div>
+    
+    <div class="password">
+        <input type="password" name="password">
+    </div>
+    <button>
+        <span><a href="{% url 'home_loginO' %}">로그인</a></span>
+    </button>
+    <tr>
+        <div class="save">
+            <input type="checkbox">로그인 상태유지<br>
+        
+    </tr>
+</form>
+</table>
+</body>
