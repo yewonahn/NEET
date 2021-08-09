@@ -1,3 +1,5 @@
+{% extends 'base.html ' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="ko">
     
@@ -25,96 +27,8 @@
             font-family: 'Noto Sans KR', sans-serif;
             background: white;
         }
-        nav ul, .filter ul {
-            list-style-type: none;
-            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
-        }
-        nav ul {
-            width: 100%;
-            margin: 0;
-            padding: 0 0 0 12%;
-        }
-        nav ul li, .filter ul li {
-            display: inline-block;
-        }
-        #logo {
-            font-family: 'TmoneyRoundWindExtraBold';
-            font-size: 22px;
-            color: #2044FF;
-        }
-        .drop {
-            position: relative;
-        }
-        .drop-menu {
-            color: black;
-            padding: 18px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-        .drop-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            font-size: 13px;
-        }
-        .drop-content a {
-            padding: 12px 16px;
-        }
-        .drop:hover .drop-content {
-            display: block;
-        }
-        .drop-content a:hover {
-            background-color: #f1f1f1
-        }
-        #drop-menu:hover, #filter:hover, .logout:hover {
-            background-color: #2044FF;
-            color: white;
-        }
-        #drop-menu:hover, #filter:hover {
-            padding: 18px;
-        }
-        .myteam, .mypage, .search-bar, .logout, .id, .profile {
-            font-size: smaller;
-            float: right;
-        }
-        .mypage {
-            margin-right: 12%;
-        }
-        .myteam a, .mypage a, .search-bar, .id a, .drop-content a, .profile a {
-            display: block;
-            text-decoration: none;
-            color: black;
-        }
-        .myteam a, .mypage a, .search-bar {
-            padding: 23px 19px 23px 0;
-        }
-        .id a {
-            padding: 23px 0;
-        }
-        .search-bar, .search {
-            text-align: left;
-            color: gray;
-            width: 200px;
-            padding: 10px 25px;
-            background-color: whitesmoke;
-            border-radius: 50px;
-        }
-        .search-bar {
-            margin: 14px 30px;
-        }
-        .logout {
-            font-size: xx-small;
-            margin: 21px 30px 21px 10px;
-            text-align: center;
-            width: 60px;
-            padding: 3px;
-            border-radius: 20px;
-            border: 1px solid #2044FF;
-            color: #2044FF;
-            cursor: pointer;
-        }
+
+
         #profile {
             margin: 12px 10px 0 0;
             width: 40px;
@@ -373,4 +287,5 @@
             <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
         </div>
     </div>
+{% endblock %}
 </body>

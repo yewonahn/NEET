@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('competition/',neetapp.views.competition, name="competition"),
     path('detailpage/',neetapp.views.detailpage, name="detailpage"),
-    path('home_loginO/',neetapp.views.home_loginO, name="home_loginO"),
+
     path('home/',neetapp.views.home, name="home"),
     path('login/',neetapp.views.login, name="login"),
     path('members/',neetapp.views.members, name="members"),

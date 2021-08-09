@@ -7,8 +7,6 @@ def competition (request):
 def detailpage (request):
     return render (request, "detailpage.html")
 
-def home_loginO (request):
-    return render (request, "home_loginO.html")
 
 def home (request):
     return render (request, "home.html")
