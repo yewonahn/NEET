@@ -9,7 +9,328 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'signup.css' %}">
 </head>
+<style>
+    body {
+    
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 20px;
+    background-image: url("{% static 'background.png' %}");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 110px;
+    
 
+}
+input{
+
+    border:none;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+.neet {
+
+    position: absolute;
+    width: 76px;
+    height: 39px;
+    left: 551px;
+    top: 151px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 36px;
+    
+    color: #2044FF;
+    
+}
+.intro {
+
+    position: absolute;
+    width: 262px;
+    height: 47px;
+    left: 629px;
+    top: 151px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 36px;
+    
+    color: #000000;
+}
+.explain {
+
+    position: absolute;
+    width: 753px;
+    height: 50px;
+    left: 344px;
+    top: 203px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.formname{
+
+    position: absolute;
+    width: 24px;
+    height: 19px;
+    left: 546px;
+    top: 308px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #000000;
+
+}
+
+.formnickname{
+    position: absolute;
+    width: 24px;
+    height: 19px;
+    left: 546px;
+    top: 356px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+    
+
+}
+
+.formemail{
+    position: absolute;
+    width: 36px;
+    height: 19px;
+    left: 546px;
+    top: 404px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+    
+
+}
+
+
+.formpassword{
+    position: absolute;
+    width:px;
+    height: 19px;
+    left: 546px;
+    top: 452px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+    
+}
+.formpasswordcheck{
+    position: absolute;
+    width: 75px;
+    height: 19px;
+    left: 546px;
+    top: 500px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+}
+
+.formschool{
+    position: absolute;
+    width: 24px;
+    height: 19px;
+    left: 546px;
+    top: 548px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+    
+
+}
+.formmajor{
+    position: absolute;
+    width: 24px;
+    height: 19px;
+    left: 547px;
+    top: 596px;
+    
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+
+    /* identical to box height */
+    
+    
+    color: #000000;
+
+}
+
+
+.name{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 300px;
+    line-height: 35px;
+    padding-left: 15px;
+    
+    background: white;
+    border-radius: 39.5px;
+}
+.nickname{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 348px;
+    line-height: 35px;
+    padding-left: 15px;
+    
+    background: white;
+    border-radius: 39.5px;
+
+}
+
+
+
+.email{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 396px;
+    line-height: 35px;
+    padding-left: 15px;
+
+    background: white;
+    border-radius: 39.5px;
+
+}
+
+
+.password{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 444px;
+    line-height: 35px;
+    padding-left: 15px;
+    
+    background: white;
+    border-radius: 39.5px;
+}
+.passwordcheck{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 492px;
+    line-height: 35px;
+    padding-left: 15px;
+    
+    background: white;
+    border-radius: 39.5px;
+}
+
+.school{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 540px;
+    line-height: 35px;
+    padding-left: 15px;
+    
+    background: white;
+    border-radius: 39.5px;
+
+}
+.major{
+    position: absolute;
+    width: 250px;
+    height: 35px;
+    left: 645px;
+    top: 588px;
+    line-height: 35px;
+    padding-left: 15px;
+
+    background: white;
+    border-radius: 39.5px;
+}
+
+button{
+    position: absolute;
+    width: 350px;
+    height: 50px;
+    left: 548px;
+    top: 653px;
+    
+    background-color: #2044FF;
+    border-radius: 39.5px;
+    color:white;
+    border:none;
+}
+a{
+    text-decoration:none
+}
+a:link{
+    color:white;
+}
+a:visited{
+    color:white;
+}
+</style>
 <body>
 <form method = "POST" action="{% url 'signup' %}">
     {% csrf_token %}
