@@ -7,11 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEET</title>
+    <title>login page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <style>
+</head>
+
+<style>
         @font-face {
             font-family: 'TmoneyRoundWindExtraBold';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
@@ -24,7 +26,6 @@
 
 
         body {
-
             font-family: 'Noto Sans KR', sans-serif;
             background-image: url("{% static 'logback.png'%}");
             background-repeat: no-repeat;
@@ -38,57 +39,43 @@
             background-color: #f1f1f1;
         }
         .neet {
-            position: absolute;
+            position: relative;
             width: 76px;
             height: 39px;
-            left: 1038px;
-            top: 251px;
-            
-            font-family: Noto Sans KR;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 25px;
-            line-height: 36px;
-            
+            left: 1020px;
+            top: 200px;
+                        
             color: #2044FF;
         }
-        .intro {
-            position: absolute;
+        #intro {
+            position: relative;
             width: 262px;
             height: 47px;
-            left: 1106px;
-            top: 251px;
-            
-            font-family: Noto Sans KR;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 25px;
-            line-height: 36px;
+            padding-left: 10px;
+            top: -39px;
+            left: 65px;
+
             
             color: #000000;
         }
-        .explain {
+        #explain {
             position: absolute;
             width: 520px;
             height: 31px;
-            left: 940px;
-            top: 296px;
-            
-            font-family: Noto Sans KR;
-            font-style: normal;
+            left: -70px;
+            top: 45px;
+
             font-weight: normal;
-            font-size: 15px;
             line-height: 22px;
-            text-align: center;
             
             color: #000000;
             
         }
-        .formid{
+        #formid{
             position: absolute;
             width: 36px;
             height: 19px;
-            left: 1025px;
+            left: 1015px;
             top: 401px;
             
             font-family: Noto Sans KR;
@@ -101,11 +88,11 @@
             
             color: #000000;
         }
-        .formpassword{
+        #formpassword{
             position: absolute;
             width: 48px;
             height: 19px;
-            left: 1025px;
+            left: 1015px;
             top: 449px;
             
             font-family: Noto Sans KR;
@@ -119,11 +106,11 @@
             color: #000000;
 
         }
-        .id{
+        #id{
             position: absolute;
             width: 250px;
             height: 35px;
-            left: 1124px;
+            left: 1114px;
             top: 393px;
             line-height: 35px;
             padding-left: 15px;
@@ -131,11 +118,11 @@
             background: #EEEEEE;
             border-radius: 39.5px;
         }
-        .password{
+        #password{
             position: absolute;
             width: 250px;
             height: 35px;
-            left: 1124px;
+            left: 1114px;
             top: 441px;
             line-height: 35px;
             padding-left: 15px;
@@ -147,7 +134,7 @@
             position: absolute;
             width: 349px;
             height: 50px;
-            left: 1025px;
+            left: 1015px;
             top: 506px;
             
             background-color: #2044FF;
@@ -175,57 +162,34 @@
         a{
             text-decoration:none
         }
-        a:link{
-            color:white;
-        }
-        a:visited{
-            color:white;
-        }
-    </style>
-<head>
-    
-    <title>login page</title>
+
+</style>
 
 </head>
-<div class="neet">
-    <h4>NEET</h4>
-    </div>
-    <div class="intro">
-    <h4>에 오신 것을 환영합니다!</h4>
-    </div>
-    <br>
-    <div class="explain">
-    <h6>NEET는 함께 성장해나갈 수 있는 팀프로젝트에 최적화된 서비스입니다.</h6>
-    </div>
-
-
 <body>
+<div class="neet">
+    <h4 style="font-family: 'TmoneyRoundWindExtraBold';">NEET</h4>
+    <h4 id="intro">에 오신 것을 환영합니다!</h4>
+    <br>
+    <h6 id="explain">NEET는 함께 성장해나갈 수 있는 팀프로젝트에 최적화된 서비스입니다.</h6>
+</div>
+
+
 <table>
 <form method = "POST" action="{%url 'login'%}">
     {% csrf_token %}
-    <div class="formid">
-        <label>아이디</label>
-    </div>
-    
-    <div class="id">
-        <input type="text" name="username">
-    </div>
 
-    <div class="formpassword">
-        <label>비밀번호</label>
-    </div>
-    
-    <div class="password">
-        <input type="password" name="password">
-    </div>
+    <label id=formid>아이디</label>
+    <input type="text" id="id" name="username">
+
+
+    <label id="formpassword">비밀번호</label>
+    <input type="password" id="password" name="password">
+
     <button>
-        <span><a href="{% url 'home' %}">로그인</a></span>
+        <span><a href="{% url 'home' %}" style="color: white;">로그인</a></span>
     </button>
-    <tr>
-        <div class="save">
-            <input type="checkbox">로그인 상태유지<br>
-        
-    </tr>
+
 </form>
 </table>
 {% endblock %}
