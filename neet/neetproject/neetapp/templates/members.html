@@ -413,6 +413,12 @@
             background: url('arrow.jpg') no-repeat 95% 50%;
         }
         select::-ms-expand { display: none; }
+        .wrapper {
+            display: grid;
+            grid-template-columns: 300px 300px 300px 300px;
+            grid-template-rows: 200px 200px 200px;
+        }
+        
     </style>
 </head>
 <body>
@@ -563,11 +569,13 @@
         <option value="">성신여자대학교</option>
         <option value="">멋쟁이사자처럼대학교</option>
     </select>
+    <a href="{% url 'members_new' %}"><button id="test_btn1">글쓰기</button></a>
 </div>
 
     <br>
-    
-    <div id="image" style="left: 150px;">
+    <!--
+
+        <div id="image" style="left: 150px;">
         <img src="{% static 'portfolio1.png'%}" alt="imgblock">
         <p id='p1'>영상 경력이 많은 대학생입니다!</p>
         <p id='p2'><a href="{% url 'profile' %}">미네쓰</a></p>
@@ -625,8 +633,16 @@
         <p id='p2'>고구마</p>   
     </div> 
     </div>
-        
+    -->
 
+    <div class="wrapper" style="margin-top: 800px; margin-left:150px">
+        {% for member in members %}
+        <div>
+            <p><img src="{{member.title_image.url}}" alt=""></p>
+            <p class="p1"><a href="{%url 'members_detail' member.id %}">{{member.title}}</a></p>
+        </div>        
+        {% endfor %}
+    </div>
 
    </body>
 </html>
