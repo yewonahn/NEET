@@ -21,20 +21,14 @@
         * {
             box-sizing: border-box;
         }
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            /* padding: 10px; */
-            background: white;
-        }
+
 
         body {
 
             font-family: 'Noto Sans KR', sans-serif;
-            padding: 10px;
             background-image: url("{% static 'logback.png'%}");
             background-repeat: no-repeat;
-            background-position-x: 12px;
-            background-position-y: 100px;
+            background-position-y: 70px;
             Opacity: 45 ;
             margin:0;
         }
@@ -206,7 +200,6 @@
 
 
 <body>
-
 <table>
 <form method = "POST" action="{%url 'login'%}">
     {% csrf_token %}

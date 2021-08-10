@@ -9,8 +9,9 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:
             user=User.objects.create_user( username=request.POST['username'], password = request.POST['password1'],
             nickname = request.POST['nickname'], email = request.POST['email'], school = request.POST['school'], major = request.POST['major'])
-            auth.login(request('home'))
-    return render (request, "signup.html")
+            auth.login(request, user)
+            return redirect('home')
+    return render(request,'signup.html')
 
 def login(request):
     if request.method == 'POST':
@@ -21,7 +22,7 @@ def login(request):
                 auth.login(request,user)
                 return redirect('home')
             else:
-                return render(request, 'login.html',{'error':'username or password is incoorect.'})
+                return render(request, 'login.html',{'error':'username or password is incorrect.'})
     else:
         return render(request,'login.html')
 

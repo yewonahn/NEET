@@ -1,5 +1,5 @@
-{% extends 'base.html ' %}
-{% block content %}
+{% extends 'base.html'%}
+{% block contents %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
@@ -12,14 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    {% load static %}
     <link rel="stylesheet" href="{% static 'signup.css' %}">
-    {% extends 'base.html'%}
-    {% block contents %}
 </head>
+
 <body>
-    <form method = "POST" action="{%url 'signup'%}">
-        {% csrf_token %}
+
+<form method = "POST" action="{% url 'signup' %}">
+    {% csrf_token %}
     <div class="formname">
         <label>이름</label>
     </div>
@@ -98,14 +97,11 @@
     </div>
 
 
-    
-
-
     <td><button>
         <a href="{% url 'login' %}">가입하기</a>
     </button>
 
     
 </form>
-{% end block %}
+{% endblock %}
 </body>

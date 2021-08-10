@@ -7,12 +7,9 @@ def competition (request):
 def detailpage (request):
     return render (request, "detailpage.html")
 
-
 def home (request):
     return render (request, "home.html")
 
-def login (request):
-    return render (request, "login.html")
 
 def members (request):
     return render (request, "members.html")
@@ -34,9 +31,6 @@ def recruitmentlist (request):
 
 def review (request):
     return render (request, "review.html")
-
-def signup (request):
-    return render (request, "signup.html")
 
 def message (request):
     return render(request, "message.html")

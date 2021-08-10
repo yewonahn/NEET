@@ -22,9 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('competition/',neetapp.views.competition, name="competition"),
     path('detailpage/',neetapp.views.detailpage, name="detailpage"),
-
     path('home/',neetapp.views.home, name="home"),
-    path('login/',neetapp.views.login, name="login"),
     path('members/',neetapp.views.members, name="members"),
     path('myteam/',neetapp.views.myteam, name="myteam"),
     path('portfolioh/',neetapp.views.portfolioh, name="portfolioh"),
@@ -32,7 +30,6 @@ urlpatterns = [
     path('recruitment/',neetapp.views.recruitment, name="recruitment"),
     path('recruitmentlist/',neetapp.views.recruitmentlist, name="recruitmentlist"),
     path('review/',neetapp.views.review, name="review"),
-    path('signup/',neetapp.views.signup, name="signup"),
     path('message/',neetapp.views.message,name="message"),
     path('', neetapp.views.home, name="home"),
     path('accounts/', include('accounts.urls')),
