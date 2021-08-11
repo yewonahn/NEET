@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'neetapp.apps.NeetappConfig',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

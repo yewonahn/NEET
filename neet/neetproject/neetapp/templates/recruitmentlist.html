@@ -379,7 +379,8 @@
             <option value="">멋쟁이사자처럼대학교</option>
         </select>
     </div>
-    <div class="bigbox">
+    <!--
+       <div class="bigbox">
         <table class="type01">
             <tr>
                 <th scope="row"><b>서울시 성북구에서 활동할 팀원 구합니다.</b><br>수상 목표로 한달간
@@ -536,10 +537,27 @@
                 </td>
             </tr>
           </table>
-    </div>
+    </div> 
+    -->
+
     <div style="text-align:center">
         <button class="button3" type="button">
             <span><a href="{% url 'recruitment' %}">글 작성하기</a></span>
         </button>
     </div>
+    
+    <div class="bigbox">
+        <table class="type01">
+            <tr>
+                {% for team in teams%}
+                <th scope="row"><b>{{team.title}}</b><br>{{team.summary}}</th>
+                <td><b>{{team.writer}}</b></td>
+                <td class = "memnum"><b>모집 팀원</b><br>{{team.num}}</td>
+            </tr>
+          </table>
+    </div> 
+
+    {% endfor %}
+    
+    
 </body>
