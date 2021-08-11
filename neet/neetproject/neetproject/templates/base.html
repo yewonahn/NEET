@@ -128,7 +128,7 @@
             <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
             <li class="myteam"><a href="{% url 'myteam' %}"> 나의 팀</a></li>
             <li class="logout"><a href="{% url 'login' %}">로그아웃</a></li>
-            <li class="id"><a href="#"><b>{{request.user.username}}</b> 님</a></li>
+            <li class="id"><a href="#"><b>{{user.username}}</b> 님</a></li>
             <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
             <li class="search-bar">검색</li>
         </ul>
