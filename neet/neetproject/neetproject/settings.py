@@ -16,6 +16,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+def AUTH_USER_MOdef():
+    return 'account.CustomUser'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
 
 # Application definition
 
