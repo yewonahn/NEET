@@ -34,7 +34,7 @@ def recruitmentlist (request):
 
 def detailpage (request, id):
     team = get_object_or_404(Team, pk=id)
-    return render (request, "detailpage.html", {'team':team})
+    return render(request, "detailpage.html", {'team':team})
 
 def recruitment (request):
     form = TeamForm()
@@ -57,14 +57,16 @@ def teams_update(request,id):
     update_team = Team.objects.get(id=id)
     update_team.title = request.POST['title']
     update_team.body = request.POST['body']
+    update_team.writer = request.POST['writer']
     update_team.pub_date = timezone.now()
+    update_team.num = request.POST['num']
     update_team.save()
     return redirect('detailpage', update_team.id)
 
 def teams_delete(request,id):
     delete_team = Team.objects.get(id=id)
     delete_team.delete()
-    return redirect('teams')
+    return redirect('recruitmentlist')
 
 def review (request):
     return render (request, "review.html")

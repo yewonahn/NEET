@@ -226,7 +226,9 @@
         <form action="{% url 'teams_update' team.id %}" method="POST">
             {%csrf_token%}
             <p>제목 <br> <input type="text" name="title" value="{{team.title}}" style="width: 400px;"></p>
-            <p>내용 <br> <textarea name="body" id="" cols="55" rows="25" value="{{team.body}}"></textarea></p> <br>
+            <p>작성자 <br> <input type="text" name="writer" value="{{team.writer}}" style="width: 400px;"></p>
+            <p>내용 <br> <textarea name="body" id="" cols="55" rows="25">{{team.body}}</textarea> <br></p>
+            <p>모집 인원 <br> <input type="number" name="num" value="{{team.num}}}" style="width: 400px;"></p>
             <button class="test_btn1" type="submit">등록</button>
         </form>
     </div>
