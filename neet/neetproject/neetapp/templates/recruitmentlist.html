@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="ko">
     
@@ -26,96 +28,7 @@
             font-family: 'Noto Sans KR', sans-serif;
             background: white;
         }
-        nav ul, .filter ul {
-            list-style-type: none;
-            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
-        }
-        nav ul {
-            width: 100%;
-            margin: 0;
-            padding: 0 0 0 12%;
-        }
-        nav ul li, .filter ul li {
-            display: inline-block;
-        }
-        #logo {
-            font-family: 'TmoneyRoundWindExtraBold';
-            font-size: 22px;
-            color: #2044FF;
-        }
-        .drop {
-            position: relative;
-        }
-        .drop-menu {
-            color: black;
-            padding: 18px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-        .drop-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            font-size: 13px;
-        }
-        .drop-content a {
-            padding: 12px 16px;
-        }
-        .drop:hover .drop-content {
-            display: block;
-        }
-        .drop-content a:hover {
-            background-color: #f1f1f1
-        }
-        #drop-menu:hover, #filter:hover, .logout:hover {
-            background-color: #2044FF;
-            color: white;
-        }
-        #drop-menu:hover, #filter:hover {
-            padding: 18px;
-        }
-        .myteam, .mypage, .search-bar, .logout, .id, .profile {
-            font-size: smaller;
-            float: right;
-        }
-        .mypage {
-            margin-right: 12%;
-        }
-        .myteam a, .mypage a, .search-bar, .id a, .drop-content a, .profile a {
-            display: block;
-            text-decoration: none;
-            color: black;
-        }
-        .myteam a, .mypage a, .search-bar {
-            padding: 23px 19px 23px 0;
-        }
-        .id a {
-            padding: 23px 0;
-        }
-        .search-bar, .search {
-            text-align: left;
-            color: gray;
-            width: 200px;
-            padding: 10px 25px;
-            background-color: whitesmoke;
-            border-radius: 50px;
-        }
-        .search-bar {
-            margin: 14px 50px;
-        }
-        .logout {
-            font-size: xx-small;
-            margin: 21px 30px 21px 10px;
-            text-align: center;
-            width: 60px;
-            padding: 3px;
-            border-radius: 20px;
-            border: 1px solid #2044FF;
-            color: #2044FF;
-            cursor: pointer;
-        }
+
         .footer {
             margin: 20px 6%;
             height: auto;
@@ -244,34 +157,7 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="drop">
-                <div class="drop-menu" id="logo">NEET</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">소개</div>
-                <div class="drop-content">
-                    <a href="#">NEET란?</a>
-                    <a href="#">이용방법</a>
-                    <a href="#">운영진 소개</a>
-                </div>
-            </li>
-            <li class="drop" >
-                <div class="drop-menu" id="drop-menu">공모전</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">포트폴리오</div>
-            </li>
-            <li class="mypage"><a href="#">마이페이지</a></li>
-            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
-            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
-            <li class="logout">로그아웃</li>
-            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
-            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
-            <li class="search-bar">검색</li>
-        </ul>
-    </nav>
+
     <img src="https://s3.ap-northeast-2.amazonaws.com/media.linkareer.com/activity_manager/posters/2021-06-151327260497010_%ED%8F%AC%EC%8A%A4%ED%84%B0.png" alt="imgblock" id='compet' style="position: absolute; width: 405px; height: 560px; left: 300px; top: 150px;">
     <p style="position: absolute; width: 282px; height: 38px; left: 725px; 
     top: 150px; font-family: Roboto; font-style: normal; font-weight: bold; font-size: 20px; line-height: 23px; color: #000000;">국가물관리위원회 영상 공모전</p>
@@ -415,4 +301,11 @@
     {% endfor %}
     
     
+    <div style="text-align:center">
+        <button class="button3" type="button">
+            <span><a href="{% url 'recruitment' %}">글 작성하기</a></span>
+        </button>
+    </div>
+
+{% endblock %}
 </body>
