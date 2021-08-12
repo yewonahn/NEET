@@ -348,6 +348,7 @@
     background-color: black;">
 
     <div class="bigbox">
+        {% for team in teams%}
         <div class="name">
             <p>{{team.writer}}</p>
         </div>
@@ -363,6 +364,7 @@
         <div class="writing">
             <p>{{team.body}}</p>
         </div>
+        {% endfor %}
         <div>
             <a href="{% url 'teams_edit' team.id %}"><button class="test_btn1">수정하기</button></a>
             <a href="{% url 'teams_delete' team.id %}"><button class="test_btn2">삭제하기</button></a>
@@ -370,3 +372,4 @@
         <hr class="line">
     </div>
 </body>
+</html>
