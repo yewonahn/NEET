@@ -275,12 +275,6 @@
         </select>
     </div>
 
-    <div style="text-align:center">
-        <button class="button3" type="button">
-            <span><a href="{% url 'recruitment' %}">글 작성하기</a></span>
-        </button>
-    </div>
-    
     <div class="bigbox">
         <table class="type01">
             <tr>
@@ -300,12 +294,13 @@
     </div>
     {% endfor %}
     
-    
+    {% if user.is_authenticated %}
     <div style="text-align:center">
         <button class="button3" type="button">
             <span><a href="{% url 'recruitment' %}">글 작성하기</a></span>
         </button>
     </div>
+    {% endif %}
 
 {% endblock %}
 </body>
