@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,38 +14,8 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <div>
-      <nav>
+    <navbar>
         <ul>
-            <li class="drop">
-                <div class="drop-menu" id="logo">NEET</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">소개</div>
-                <div class="drop-content">
-                    <a href="#">NEET란?</a>
-                    <a href="#">이용방법</a>
-                    <a href="#">운영진 소개</a>
-                </div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">공모전</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">포트폴리오</div>
-            </li>
-            <li class="mypage"><a href="#">마이페이지</a></li>
-            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
-            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
-            <li class="logout">로그아웃</li>
-            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
-            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
-            <li class="search-bar">검색</li>
-        </ul>
-      </nav>
-      <navbar>
-        <ul>
-            
             <li class="drop2">
                 <div class="drop-menu2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
@@ -73,8 +46,8 @@
                 </svg>
             </a></li>
         </ul>
-      </navbar>
-    </div>
+ 
+    </navbar>
     <!-- <bar>
     <div class="bar">
             <image src="image/상단바.png" alt=''/>
@@ -211,6 +184,6 @@
 
 
 
-
+{% endblock %}
 </body>
 </html>

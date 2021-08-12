@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="ko">
     
@@ -115,6 +117,8 @@
             color: #2044FF;
             cursor: pointer;
         }
+
+
         #profile {
             margin: 12px 10px 0 0;
             width: 40px;
@@ -145,7 +149,6 @@
             
             color: #000000;
         }
-
         #context{
             position: absolute;
             height: 22px;
@@ -212,37 +215,31 @@
         a:visited{
             color:black;
         }
+        .text-center{
+            text-align: center;
+        }
+        .test_btn1{
+            color: black;
+            border: 1px solid black;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+            background-color: white;
+            position:absolute;
+            top:500px;
+            left:60px;
+        }
+        .test_btn2{
+            position:absolute;
+            top:500px;
+            left:185px;
+            background-color: white;
+            color: black;
+            border-radius: 39.5px;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="drop">
-                <div class="drop-menu" id="logo">NEET</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">소개</div>
-                <div class="drop-content">
-                    <a href="#">NEET란?</a>
-                    <a href="#">이용방법</a>
-                    <a href="#">운영진 소개</a>
-                </div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">공모전</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">포트폴리오</div>
-            </li>
-            <li class="mypage"><a href="#">마이페이지</a></li>
-            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
-            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
-            <li class="logout">로그아웃</li>
-            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
-            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
-            <li class="search-bar">검색</li>
-        </ul>
-    </nav>
+
     <img src="https://s3.ap-northeast-2.amazonaws.com/media.linkareer.com/activity_manager/posters/2021-06-151327260497010_%ED%8F%AC%EC%8A%A4%ED%84%B0.png" alt="imgblock" id='compet' style="position: absolute; width: 405px; height: 560px; left: 300px; top: 150px;">
     <p style="position: absolute; width: 282px; height: 38px; left: 725px; 
     top: 150px; font-family: Roboto; font-style: normal; font-weight: bold; font-size: 20px; line-height: 23px; color: #000000;">국가물관리위원회 영상 공모전</p>
@@ -329,48 +326,27 @@
     background-color: black;">
 
     <div class="bigbox">
-        <div class="img1">
-            <img class="realrealprofile" src="{% static 'profile1.png'%}" alt="profile">
+        <div class="title">
+            <p>{{team.title}}</p>
+        </div>
+        <div class="time">
+            <p>{{team.pub_date}}</p>
         </div>
         <div class="name">
-            <p>사용자 닉네임</p>
+            <p>{{team.writer}}</p>
         </div>
         <div class="portfolio">
             <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
         </div>
-        <div class="title">
-            <p>서울시 성북구에서 활동할 팀원 구합니다.</p>
-        </div>
-        <div class="time">
-            <p>성신여자대학교  |  4시간 전</p>
-        </div>
         <div class="writing">
-            <p>수상 목표로 한 달간 열심히 하실 분들이셨으면 좋겠습니다. 모임 요일과 시간은 같이 협의해요. 프리미어 프로 다루실 수 있는
-                분들만 받겠습니다. 영상 제작 경험과 영상 공모전 수상 경험이 있기 때문에 저희 팀 들어오시면 수월하실 것 같습니다. 
-                포트폴리오 확인해 보시고 같이 하시고 싶으시면 편하게 연락주세요.
-            </p>
+            <p>{{team.body}}</p>
         </div>
-        <hr class="line">
-        <div class="team">
-            <p>현재 팀원 3명 중 2명 모집 완료</p>
-        </div>
-        <div class="img2">
-            <img class="realrealprofile" src="{% static 'profile2.png'%}" alt="profile">
-        </div>
-        <div class="name2">
-            <p>사용자 닉네임</p>
-        </div>
-        <div class="portfolio2">
-            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
-        </div>
-        <div class="img3">
-            <img class="realrealprofile" src="{% static 'profile3.png'%}" alt="profile">
-        </div>
-        <div class="name3">
-            <p>사용자 닉네임</p>
-        </div>
-        <div class="portfolio3">
-            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
+        <div>
+            <a href="{% url 'teams_edit' team.id %}"><button class="test_btn1">수정하기</button></a>
+            <a href="{% url 'teams_delete' team.id %}"><button class="test_btn2">삭제하기</button></a>
         </div>
     </div>
+</body>
+</html>
+{% endblock %}
 </body>

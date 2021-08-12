@@ -1,9 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="ko">
     
 <head>
     <meta charset="UTF-8">
-    {% load static %}
     <link rel="stylesheet" href="{% static 'recruitment.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         @font-face {
             font-family: 'TmoneyRoundWindExtraBold';
@@ -33,95 +38,7 @@
         }
 
         /* NAV바 */
-        nav ul {
-            width: 100%;
-            background-color: white;
-            list-style-type: none;
-            margin: 0;
-            padding: 0 0 0 12%;;
-            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
-        }
-        nav ul li {
-            display: inline-block;
-        }
-        #logo {
-            font-family: 'TmoneyRoundWindExtraBold';
-            font-size: 22px;
-            color: #2044FF;
-        }
-        .drop {
-            position: relative;
-            z-index: 10;
-        }
-        .drop-menu {
-            color: black;
-            padding: 18px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-        .drop-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            font-size: 13px;
-        }
-        .drop-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .drop:hover .drop-content {
-            display: block;
-        }
-        .drop-content a:hover {background-color: #f1f1f1}
-        #drop-menu:hover {
-            background-color: #2044FF;
-            padding: 18px;
-            color: white;
-        }
-        .myteam, .mypage, .search-bar, .logout, .id, .profile {
-            font-size: smaller;
-            float: right;
-        }
-        .mypage {
-            margin-right: 12%;
-        }
-        .myteam a, .mypage a, .search-bar, .id a, .profile a {
-            display: block;
-            text-decoration: none;
-            color: black;
-        }
-        .myteam a, .mypage a, .search-bar {
-            padding: 23px 19px 23px 0;
-        }
-        .id a {
-            padding: 23px 0;
-        }
-        .search-bar, .search {
-            text-align: left;
-            color: gray;
-            width: 200px;
-            padding: 10px 25px;
-            background-color: whitesmoke;
-            border-radius: 50px;
-        }
-        .search-bar {
-            margin: 14px 50px;
-        }
-        .logout {
-            font-size: xx-small;
-            margin: 21px 30px 21px 10px;
-            text-align: center;
-            width: 60px;
-            padding: 3px;
-            border-radius: 20px;
-            border: 1px solid #2044FF;
-            color: #2044FF;
-            cursor: pointer;
-        }
+
 /*         
         .profile {
             width:30px;
@@ -189,37 +106,29 @@
             background: #2044FF;
             border-radius: 39.5px;
         }
+        .text-center{
+            text-align: center;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .test_btn1{
+            left: 726px;
+
+            color: #2044FF;
+            border: 1px solid #2044FF;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+            background-color: white;
+        }
+        #sform {
+            display: inline-block;
+            text-align: center;
+          }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="drop">
-                <div class="drop-menu" id="logo">NEET</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">소개</div>
-                <div class="drop-content">
-                    <a href="#">NEET란?</a>
-                    <a href="#">이용방법</a>
-                    <a href="#">운영진 소개</a>
-                </div>
-            </li>
-            <li class="drop" >
-                <div class="drop-menu" id="drop-menu">공모전</div>
-            </li>
-            <li class="drop">
-                <div class="drop-menu" id="drop-menu">포트폴리오</div>
-            </li>
-            <li class="mypage"><a href="#">마이페이지</a></li>
-            <li class="myteam"><a style="color: rgb(192, 192, 192);" href="#">ㅣ</a></li>
-            <li class="myteam"><a href="{% url 'myteam' %}"> 나의팀</a></li>
-            <li class="logout">로그아웃</li>
-            <li class="id"><a href="#"><b>사자수정</b> 님</a></li>
-            <li class="profile"><a href="#"><img id="profile" src="{% static 'user.png'%}" alt="프로필 이미지"></a></li>
-            <li class="search-bar">검색</li>
-        </ul>
-    </nav>
+
     <img class="img" src="https://s3.ap-northeast-2.amazonaws.com/media.linkareer.com/activity_manager/posters/2021-06-151327260497010_%ED%8F%AC%EC%8A%A4%ED%84%B0.png" alt="imgblock" id='compet' style="position: absolute; width: 405px; height: 560px; left: 300px; top: 150px;">
     <p style="position: absolute; width: 282px; height: 38px; left: 725px; 
     top: 150px; font-family: Roboto; font-style: normal; font-weight: bold; font-size: 20px; line-height: 23px; color: #000000;">국가물관리위원회 영상 공모전</p>
@@ -306,51 +215,17 @@
     border: 2px solid black;
     background-color: black;">
     
-    <div class="bigbox">
-        <table class="type01">
-            <tr>
-                <th><input type="text" name="title" placeholder="제목을 입력해주세요." style="border:0 solid black; width:400px;"></th>
-            </tr>
-            <tr>
-                <th><textarea name="body" cols="30" rows="10" placeholder="본문을 입력해주세요."></textarea></th>
-            </tr>
-        </table>
-        <table class="type01">
-            <tr>
-                <th>모집 인원</th>
-                <td>
-                    <select name="people">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>노출할 경력을 선택해주세요.</th>
-                <td>
-                    <input type="checkbox" name="1" value="1" style="position:relative; top:3px;">성신여자대학교 영어 스피치 대회 은상<br>
-                    <input type="checkbox" name="2" value="2" style="position:relative; top:3px;">성신여자대학교 입학 OT 영상 제작<br>
-                    <input type="checkbox" name="2" value="2" style="position:relative; top:3px;">서울시 30초 영상 공모전 3등<br>
-                    <input type="checkbox" name="2" value="2" style="position:relative; top:3px;">제일기획 광고 아이디어 참가<br>
-                    <input type="checkbox" name="2" value="2" style="position:relative; top:3px;">문화체육부 클린 인터넷 대외활동<br>
-                </td>
-            </tr>
-            <tr>
-                <th>포트폴리오 공개</th>
-                <td><input type="checkbox" name="portfolio" value="portfolio" checked>공개</td>
-            </tr>
-        </table>
+    <div class="text-center">
+        <form style="margin-top:800px;width:800px;" action="{% url 'teams_create' %}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <table>
+                {% bootstrap_form form %}
+            </table>
+            <div class="text-center">
+                <button class="test_btn1" type="submit">등록</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <button type="button" class="button1">
-            <span>임시 저장</span>
-            </button>
-        <button type="button" class="button2">
-            <span>업로드 하기</span>
-        </button>
-    </div>
+
+{% endblock %}
 </body>
