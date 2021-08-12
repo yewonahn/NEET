@@ -27,6 +27,96 @@
             font-family: 'Noto Sans KR', sans-serif;
             background: white;
         }
+        nav ul, .filter ul {
+            list-style-type: none;
+            box-shadow: 0px 4px 7px -4px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 12%;
+        }
+        nav ul li, .filter ul li {
+            display: inline-block;
+        }
+        #logo {
+            font-family: 'TmoneyRoundWindExtraBold';
+            font-size: 22px;
+            color: #2044FF;
+        }
+        .drop {
+            position: relative;
+        }
+        .drop-menu {
+            color: black;
+            padding: 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .drop-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+        }
+        .drop-content a {
+            padding: 12px 16px;
+        }
+        .drop:hover .drop-content {
+            display: block;
+        }
+        .drop-content a:hover {
+            background-color: #f1f1f1
+        }
+        #drop-menu:hover, #filter:hover, .logout:hover {
+            background-color: #2044FF;
+            color: white;
+        }
+        #drop-menu:hover, #filter:hover {
+            padding: 18px;
+        }
+        .myteam, .mypage, .search-bar, .logout, .id, .profile {
+            font-size: smaller;
+            float: right;
+        }
+        .mypage {
+            margin-right: 12%;
+        }
+        .myteam a, .mypage a, .search-bar, .id a, .drop-content a, .profile a {
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+        .myteam a, .mypage a, .search-bar {
+            padding: 23px 19px 23px 0;
+        }
+        .id a {
+            padding: 23px 0;
+        }
+        .search-bar, .search {
+            text-align: left;
+            color: gray;
+            width: 200px;
+            padding: 10px 25px;
+            background-color: whitesmoke;
+            border-radius: 50px;
+        }
+        .search-bar {
+            margin: 14px 30px;
+        }
+        .logout {
+            font-size: xx-small;
+            margin: 21px 30px 21px 10px;
+            text-align: center;
+            width: 60px;
+            padding: 3px;
+            border-radius: 20px;
+            border: 1px solid #2044FF;
+            color: #2044FF;
+            cursor: pointer;
+        }
 
 
         #profile {
@@ -59,7 +149,6 @@
             
             color: #000000;
         }
-
         #context{
             position: absolute;
             height: 22px;
@@ -125,6 +214,27 @@
         }
         a:visited{
             color:black;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .test_btn1{
+            color: black;
+            border: 1px solid black;
+            box-sizing: border-box;
+            border-radius: 39.5px;
+            background-color: white;
+            position:absolute;
+            top:500px;
+            left:60px;
+        }
+        .test_btn2{
+            position:absolute;
+            top:500px;
+            left:185px;
+            background-color: white;
+            color: black;
+            border-radius: 39.5px;
         }
     </style>
 </head>
@@ -216,49 +326,27 @@
     background-color: black;">
 
     <div class="bigbox">
-        <div class="img1">
-            <img class="realrealprofile" src="{% static 'profile1.png'%}" alt="profile">
+        <div class="title">
+            <p>{{team.title}}</p>
+        </div>
+        <div class="time">
+            <p>{{team.pub_date}}</p>
         </div>
         <div class="name">
-            <p>사용자 닉네임</p>
+            <p>{{team.writer}}</p>
         </div>
         <div class="portfolio">
             <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
         </div>
-        <div class="title">
-            <p>서울시 성북구에서 활동할 팀원 구합니다.</p>
-        </div>
-        <div class="time">
-            <p>성신여자대학교  |  4시간 전</p>
-        </div>
         <div class="writing">
-            <p>수상 목표로 한 달간 열심히 하실 분들이셨으면 좋겠습니다. 모임 요일과 시간은 같이 협의해요. 프리미어 프로 다루실 수 있는
-                분들만 받겠습니다. 영상 제작 경험과 영상 공모전 수상 경험이 있기 때문에 저희 팀 들어오시면 수월하실 것 같습니다. 
-                포트폴리오 확인해 보시고 같이 하시고 싶으시면 편하게 연락주세요.
-            </p>
+            <p>{{team.body}}</p>
         </div>
-        <hr class="line">
-        <div class="team">
-            <p>현재 팀원 3명 중 2명 모집 완료</p>
-        </div>
-        <div class="img2">
-            <img class="realrealprofile" src="{% static 'profile2.png'%}" alt="profile">
-        </div>
-        <div class="name2">
-            <p>사용자 닉네임</p>
-        </div>
-        <div class="portfolio2">
-            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
-        </div>
-        <div class="img3">
-            <img class="realrealprofile" src="{% static 'profile3.png'%}" alt="profile">
-        </div>
-        <div class="name3">
-            <p>사용자 닉네임</p>
-        </div>
-        <div class="portfolio3">
-            <a href="{% url 'portfolioh' %}">포트폴리오 보기></a>
+        <div>
+            <a href="{% url 'teams_edit' team.id %}"><button class="test_btn1">수정하기</button></a>
+            <a href="{% url 'teams_delete' team.id %}"><button class="test_btn2">삭제하기</button></a>
         </div>
     </div>
+</body>
+</html>
 {% endblock %}
 </body>
